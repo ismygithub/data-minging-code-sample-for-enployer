@@ -1,0 +1,234 @@
+------------------------------------------------------------------------------------
+R studio Code Example (R Language)
+------------------------------------------------------------------------------------
+Junjie Qiu
+------------------------------------------------------------------------------------
+May 20th
+------------------------------------------------------------------------------------
+Here are 5 examples. The first one is a demonstration of coding on self avoiding random walk. The second, third and fourth are the techniques to do data mining. 
+------------------------------------------------------------------------------------
+```{r}
+require(lattice)
+require(boot)
+require(MASS)
+require(pls)
+require(ggplot2)
+require(ISLR)
+require(glmnet)
+require(locfit)
+require(graphics)
+require(splines)
+require(leaps)
+```
+
+===================================================================================
+Self avoiding random walk
+===================================================================================
+-----------------------------------------------------------------------------------
+This demonstrate my skill on programing, I make several loop in the function to generate Self avoiding random walk. The function consists the matrix and vectors calculation. vectors are being insert and output independently through the whole process. I am able to do this on every type of data matrix fluently. For time series related subject, i am able to turn data into coordinates so that they can be demonstrated in the graph just like these walks.
+-----------------------------------------------------------------------------------
+```{r}
+saw <- function(n){
+  map<-matrix(c(FALSE),2*n+1,2*n+1)
+  x <- n + 1
+  y <- n + 1
+  map[x, y] = TRUE
+  optfull = c('up','right','left','down')
+  s <- 1
+  w <- 1
+  coord <- matrix(c(0),n+2,2)
+  coord[1, 1] <- x
+  coord[1, 2] <- y
+  ltrue <- 0
+  rtrue <- 0
+  utrue <- 0
+  dtrue <- 0
+  for(i in 1:n+1){
+    opt <- optfull[-c(ltrue,utrue,dtrue,rtrue)]
+    if(length(opt)==0&&ltrue>0&&rtrue>0&&utrue>0&&dtrue>0){break}
+    if(length(opt)==0){opt <- optfull}
+    n_t <- length(opt)
+    path <- sample(opt,1)
+    if(path == "left"){map[x, y-s] = TRUE
+                       y <- y-s
+                      }
+    if(path == "up"){map[x-s, y] = TRUE
+                     x <- x-s
+                    }
+    if(path == "down"){map[x+s, y] = TRUE
+                       x <- x+s
+                      }
+    if(path == "right"){map[x, y+s] = TRUE
+                        y <- y+s
+                       }
+    coord[i+1, 1] <- x
+    coord[i+1, 2] <- y
+    w <- w * n_t
+    if(y-s == 0){break}
+    if(x-s == 0){break}
+    if(x+s > (2*n+1)){break}
+    if(y+s > (2*n+1)){break}
+    ltrue <- 0
+    rtrue <- 0
+    utrue <- 0
+    dtrue <- 0
+    if(map[x, y-s] == TRUE){ltrue <- ltrue + 3}
+    if(map[x-s, y] == TRUE){utrue <- utrue + 1}
+    if(map[x+s, y] == TRUE){dtrue <- dtrue + 4}
+    if(map[x, y+s] == TRUE){rtrue <- rtrue + 2}
+  }
+  for(i in 1:n+2){
+    if(coord[i,1]==0&&coord[i,2]==0){
+      coord <- coord[-(i:(n+2)),]
+      break
+      }
+  }
+  coord <- coord[-2,]
+  plot(coord,type='l',asp=1)
+  return(w)
+}
+saw(100)
+```
+
+
+
+===================================================================================
+Linear Regression
+===================================================================================
+```{r}
+x <- seq(0, 10, length.out = 50)
+fx <- 3 - 5 * x
+plot(x, fx)
+y <- 3 - 5 * x + rnorm(n = length(x), mean = 0, sd = 10)
+plot(x, y)
+realY <- 3 - 5 * 7
+errors = c()
+for (i in 1:1000) {
+    y = 3 - 5 * x + rnorm(n = length(x), mean = 0, sd = 10)
+    m1 = lm(y ~ x)
+    prediction1 = predict(m1, newdata = data.frame(x = 7))
+    error = realY - prediction1
+    errors = c(errors, error)
+}
+hist(errors)
+mean.errors <- mean(errors)
+mean.errors
+sd(errors)
+
+```
+------------------------------------------------------------------------------------
+This is a example to demonstrate the linear regression based on a simple equation.
+------------------------------------------------------------------------------------
+```{r}
+cdc <- read.csv("C:/Users/Cherub/Desktop/stat101c/hw2/cdc.csv")
+p=ggplot(cdc,aes(x=weight, y=wtdesire, colour=exerany, shape=gender))
+p  + geom_point() + facet_grid(gender~exerany) + geom_smooth(aes(group=gender), method="lm", colour="green", size=1.5) + ggtitle("association between current weight and desire weight") 
+p  + geom_point() + facet_grid(gender~exerany) + geom_smooth(size=1,color="green") + ggtitle("association between current weight and desire weight")
+```
+------------------------------------------------------------------------------------
+These are examples to demonstrate my ability on making graphics based on regression method. Data is about the health conditions on patients.
+------------------------------------------------------------------------------------
+```{r}
+require(ISLR)
+data(Weekly)
+m1=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data=Weekly, family=binomial)
+summary(m1)
+probm1 = predict(m1, type = "response")
+# Now, the predictions from the model
+predictions = rep("Down", dim(Weekly)[1])
+predictions[probm1 > 0.5] = "Up"
+summary(factor(predictions))
+table(predictions, Weekly$Direction)
+print(list('correct_rate',(54+557)/(1089)))
+m2 <- glm(Direction~Lag1+Lag2,data=Weekly,family="binomial")
+summary(m2)
+m3 <- glm(Direction~Lag1+Lag2,data=Weekly[-1,],family="binomial")
+summary(m3)
+predict(m3, data.frame(Weekly[1, ]), type = "response")
+Weekly[1,"Direction"]
+```
+------------------------------------------------------------------------------------
+I do a prediction on stock market, and look for the most significant lagging time on the price movement. I also do a prediction on year 1990. The correct rate in this data is 56.1%.
+------------------------------------------------------------------------------------
+
+===================================================================================
+Classification
+===================================================================================
+------------------------------------------------------------------------------------
+Classification technique is useful in classify the true and false from large dataset
+------------------------------------------------------------------------------------
+```{r}
+banknote <- read.delim("C:/Users/Cherub/Desktop/stat101c/banknote.txt")
+p.l=ggplot(banknote,aes(Length,colour=factor(Y)))+geom_density()
+p.l
+predicted.counterfeit=banknote$Length<215
+table(predicted.counterfeit, factor(banknote$Y))
+
+ggplot(banknote, aes(Left,colour=factor(Y)))+geom_density()
+predicted.counterfeit=banknote$Left<130.1
+table(predicted.counterfeit, factor(banknote$Y))
+
+p.d=ggplot(banknote,aes(Diagonal, colour=factor(Y)))+geom_density()
+p.d
+predicted.counterfeit=banknote$Diagonal<140.5
+table(predicted.counterfeit, factor(banknote$Y))
+```
+------------------------------------------------------------------------------------
+From each given variable on banknote, we can clearly see the distinction in this notes on the graphics. The more distint they are, the easier to clarify the counterfeit notes.
+-----------------------------------------------------------------------------------
+
+===================================================================================
+Resampling Method
+===================================================================================
+-----------------------------------------------------------------------------------
+If the dataset is too large, there are couple ways to reduce its size in order to perform in analysis. The following is the k-fold split. Before k-fold, we choose the k by use glm function to fit the best k based on the validation error.
+-----------------------------------------------------------------------------------
+```{r}
+data(Auto)
+  set.seed(4321)
+  cv.error=c()
+  for(i in 1:10){
+    glm.fit=glm(mpg~poly(horsepower,i),data=Auto)  #this defaults to family="normal" which is a LS fit
+    test.error=cv.glm(Auto,glm.fit,K=10)$delta[1]  #output from glm.cv provides two estimates of mse.  We want the first of the two.
+    cv.error=c(cv.error,test.error)
+  }
+  plot(cv.error~c(1:10), xlab="degree of polynomial")
+  lines(cv.error~c(1:10))
+
+n=dim(Auto)[1]  
+  x1=sample(1:n)  #scrambles the integers 1 through n
+  k=3 #the number of folds
+  reps=rep(1:k, n)  #repeats the sequence 1 2 3..k   n times
+  out=split(x1,f=reps)
+  #split splits the vector x1 into groups based the variable f. #Result is a list of three sets of indices
+  names(out)
+  fold1=Auto[out[[1]],]
+  fold2=Auto[out[[2]],]
+  fold3=Auto[out[[3]],]
+
+```
+-----------------------------------------------------------------------------------
+The PC regression is use to reduce the dimension of the dataset, but keeps large percentage of the data for predicting the results.
+-----------------------------------------------------------------------------------
+```{r}
+pgatour <- read.csv("C:/Users/Cherub/Desktop/stat101c/pgatour2006.csv")
+pgatour.t=transform(pgatour,lprize=log(PrizeMoney))
+
+pgatour.na=na.omit(pgatour.t)
+pcr.5pc=pcr(lprize~.,data=pgatour.na,scale=TRUE, ncomp=5)
+summary(pcr.5pc)
+```
+
+===================================================================================
+Anova test
+===================================================================================
+```{r}
+IVsample <- read.csv("~/homework/Stat 101A/stat101A/IVsample.csv")
+xyplot(Purity~Manufactuer+fluidtype,data=IVsample)
+boxplot(Purity~Manufactuer+fluidtype,data=IVsample)
+output=aov(Purity~Manufactuer+fluidtype, data=IVsample)
+summary(output)
+```
+-----------------------------------------------------------------------------------
+This is a general method for testing sample to find out the significant factor in statistics. A/B testing or multi-factors testing is also used.
+-----------------------------------------------------------------------------------
