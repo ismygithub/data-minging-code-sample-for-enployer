@@ -1,0 +1,5627 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <cmath>
+#include <time.h>
+
+using namespace std;
+
+void firstpage();
+void championselection(double*, double*, double*, double*, double*,double*, string, string);
+void priority();
+void firstdraw(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*);
+void Archer(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*,double* ,double, double,string, string, double*, double*, double*, string, string);
+void Barbarian(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*,double* ,double, double,string, string, double*, double*, double*, string, string);
+void Rider(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*,double* ,double, double,string, string, double*, double*, double*, string, string);
+void Assassin(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*,double* ,double, double,string, string, double*, double*, double*, string, string);
+void Caster(double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*, double*,double*, double*, double*, double*,double* ,double, double,string, string, double*, double*, double*, string, string);
+
+	double hp1 = 4;
+	double hp2 = 4;
+	double attack1 = 1;
+	double attack2 = 1;
+	double cardseachround1 = 2;
+	double cardseachround2 = 2;
+	double kill1=0;
+	double kill2 = 0;
+	double dodge1 =0;
+	double dodge2 = 0;
+	double potion1 = 0;
+	double potion2 =0;
+	string player1name;
+	string player2name;
+	double firearrow1 = 0;
+	double firearrow2 = 0;
+	double lightening1 = 0;
+	double lightening2 = 0;
+	double sunset1 = 0;
+	double sunset2 = 0;
+	double phoenix1 = 0;
+	double phoenix2 = 0;
+	double bloodthirsty1 = 0;
+	double bloodthirsty2 = 0;
+	double reaper1 = 0;
+	double reaper2 = 0;
+	double shield1 = 0;
+	double shield2 = 0;
+	double armor1 = 0;
+	double armor2 = 0;
+	double greedy1 = 0;
+	double greedy2 = 0;
+	double plague1 = 0;
+	double plague2 = 0;
+	string gladiator1;
+	string gladiator2;
+	double champion1;
+	double champion2;
+	double totalcards1 = 0;
+	double totalcards2 = 0;
+	double currenthp1 = 0;
+	double currenthp2 = 0;
+	double showcard1;
+	double accumulateattack1=0;
+	double round =0;
+
+void main()
+{
+	firstpage();
+	priority();
+	championselection(&hp1, &hp2, &attack1, &attack2, &champion1, &champion2,   gladiator1,  gladiator2);
+	firstdraw(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2);
+	for(int r=0; r<=30; r++)
+{
+	//player1;
+	if (champion1==1)
+	{
+		Barbarian(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2, &currenthp1, &currenthp2, hp1, hp2, player1name, player2name, &showcard1, &accumulateattack1,&round, gladiator1, gladiator2);
+	}
+
+	if (champion1==2)
+	{
+		Archer(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2, &currenthp1, &currenthp2, hp1, hp2, player1name, player2name, &showcard1, &accumulateattack1,&round,  gladiator1, gladiator2);
+	}
+
+	if (champion1==3)
+	{
+		Rider(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2, &currenthp1, &currenthp2, hp1, hp2, player1name, player2name, &showcard1, &accumulateattack1,&round,  gladiator1, gladiator2);
+	}
+
+	if (champion1==4)
+	{
+		Caster(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2, &currenthp1, &currenthp2, hp1, hp2, player1name, player2name, &showcard1, &accumulateattack1,&round,  gladiator1, gladiator2);
+	}
+
+	if (champion1==5)
+	{
+		Assassin(&kill1, &kill2, &dodge1, &dodge2, &potion1,&potion2,&firearrow1, &firearrow2,&lightening1,&lightening2,&sunset1,&sunset2,&phoenix1,&phoenix2,&bloodthirsty1,&bloodthirsty2,&reaper1,&reaper2,&shield1,&shield2,&armor1,&armor2,&greedy1,&greedy2,&plague1,&plague2, &totalcards1, &totalcards2, &currenthp1, &currenthp2, hp1, hp2, player1name, player2name, &showcard1, &accumulateattack1,&round,  gladiator1, gladiator2);
+	}
+
+	if (champion2==1)
+	{
+		Barbarian(&kill2, &kill1, &dodge2, &dodge1, &potion2,&potion1,&firearrow2, &firearrow1,&lightening2,&lightening1,&sunset2,&sunset1,&phoenix2,&phoenix1,&bloodthirsty2, &bloodthirsty1,&reaper2,&reaper1,&shield2, &shield1,&armor2,&armor1,&greedy2,&greedy1,&plague2, &plague1, &totalcards2, &totalcards1, &currenthp2, &currenthp1, hp2, hp1, player2name, player1name, &showcard1, &accumulateattack1,&round,  gladiator2, gladiator1);
+	}
+
+	if (champion2==2)
+	{
+		Archer(&kill2, &kill1, &dodge2, &dodge1, &potion2,&potion1,&firearrow2, &firearrow1,&lightening2,&lightening1,&sunset2,&sunset1,&phoenix2,&phoenix1,&bloodthirsty2, &bloodthirsty1,&reaper2,&reaper1,&shield2, &shield1,&armor2,&armor1,&greedy2,&greedy1,&plague2, &plague1, &totalcards2, &totalcards1, &currenthp2, &currenthp1, hp2, hp1, player2name, player1name, &showcard1, &accumulateattack1,&round,  gladiator2, gladiator1);
+	}
+
+	if (champion2==3)
+	{
+		Rider(&kill2, &kill1, &dodge2, &dodge1, &potion2,&potion1,&firearrow2, &firearrow1,&lightening2,&lightening1,&sunset2,&sunset1,&phoenix2,&phoenix1,&bloodthirsty2, &bloodthirsty1,&reaper2,&reaper1,&shield2, &shield1,&armor2,&armor1,&greedy2,&greedy1,&plague2, &plague1, &totalcards2, &totalcards1, &currenthp2, &currenthp1, hp2, hp1, player2name, player1name, &showcard1, &accumulateattack1,&round,  gladiator2, gladiator1);
+	}
+
+	if (champion2==4)
+	{
+		Caster(&kill2, &kill1, &dodge2, &dodge1, &potion2,&potion1,&firearrow2, &firearrow1,&lightening2,&lightening1,&sunset2,&sunset1,&phoenix2,&phoenix1,&bloodthirsty2, &bloodthirsty1,&reaper2,&reaper1,&shield2, &shield1,&armor2,&armor1,&greedy2,&greedy1,&plague2, &plague1, &totalcards2, &totalcards1, &currenthp2, &currenthp1, hp2, hp1, player2name, player1name, &showcard1, &accumulateattack1,&round,  gladiator2, gladiator1);
+	}
+
+	if (champion2==5)
+	{
+		Assassin(&kill2, &kill1, &dodge2, &dodge1, &potion2,&potion1,&firearrow2, &firearrow1,&lightening2,&lightening1,&sunset2,&sunset1,&phoenix2,&phoenix1,&bloodthirsty2, &bloodthirsty1,&reaper2,&reaper1,&shield2, &shield1,&armor2,&armor1,&greedy2,&greedy1,&plague2, &plague1, &totalcards2, &totalcards1, &currenthp2, &currenthp1, hp2, hp1, player2name, player1name, &showcard1, &accumulateattack1,&round,  gladiator2, gladiator1);
+	}
+}
+	cout << "Both of you are dead!!!" << endl;
+}
+
+void firstpage()
+{
+	cout << "                         <<The Legend of Arena>>" << endl;
+	cout << endl;
+	cout << "                   By Leo Huang, Peter Qiu and Eric Song" << endl;
+	cout << endl;
+	cout << "Welcome to the world of arean! Gladiators are bloodthirsty for their honors in the battlefield. " <<  endl;
+	cout << endl;
+	cout << endl;
+}
+
+void priority()
+{
+	int toss;
+	int dice;
+	srand ((unsigned)time(NULL));
+
+	cout << "Player1 toss his dice to decide his priority.(1 goes first, 2 goes second)" << endl;
+ 	cout << "Player1,please toss your dice(enter number 1 to toss)." << endl;
+	cin >> toss;
+	while (toss != 1)
+	{
+		cout << "Please tell 00me you are ready" << endl;
+		cin >> toss;
+	}
+
+	dice = rand()%2+1;
+	cout << dice << endl;
+
+	if (dice==1)
+	{
+		cout << "Player1 goes first!" << endl;
+		cout << "Player1, please enter your name: ";
+		cin >> player1name;
+		cout << "Player2, please enter your name: ";
+		cin >> player2name;
+	}
+	else
+	{	
+		cout << "Player 2 goes first!" << endl;
+		cout << "Player2, please enter your name: ";
+		cin >> player1name;
+		cout << "Player1, please enter your name: ";
+		cin >> player2name;
+	}
+
+	cout << endl;
+	cout << endl;
+}
+
+void championselection(double *Hp1,double *Hp2,double *Attack1,double *Attack2,double *Champion1, double *Champion2, string gladiator, string gladiator2)
+{
+
+
+	cout << "                           Welcome to our gladiator selection stage!!!" << endl;
+	cout << endl;
+	cout << "Please carefully view your gladiator and his skill." << endl;
+	cout << endl;
+	cout << "********************************************************************************************************************************\n\n" << endl;
+	cout << "1.Barbarian" << endl;
+	cout << endl;
+	cout << "Barbarian is the toughest warrior in the battlefield. His flesh is his best armor, and his attack is devastating." << endl;
+	cout << endl;
+	cout << "Stats: Hp+1; attack+1" << endl;
+	cout << "Skill: Every attack has to sacrify 1 kill on hand." << endl;
+	cout << endl;
+	cout << endl;
+	
+	cout << "2.Archer" << endl;
+	cout << "Archer is a deadly killer. His bow and arrows can take any lives easily." << endl;
+	cout << endl;
+	cout << "Stats: Hp-1" << endl;
+	cout << "Skill: Every attack has 50% to deal extra damage." << endl;
+	cout << endl;
+	cout << endl;
+
+	cout << "3.Rider" << endl;
+	cout << "Rider is a glorious knight! His armor and horse give Rider the power to cross enemy's corpse." << endl;
+	cout << endl;
+	cout << "Stats: Hp+1" << endl;
+	cout << "Skill: Discard 2 cards, your attack is true damage(opponent cannot dodge)." << endl;
+	cout << endl;
+	cout << endl;
+
+	cout << "4.Caster" << endl;
+	cout << "Caster is a great magician! His magical power will destroy all the enemies." << endl;
+	cout << endl;
+	cout << "Stats: Hp-1" << endl;
+	cout << "Skill: At the beginning of the turn, you can discard 1 card to throw a dice." << endl; 
+	cout << "       There are 50% that you can draw 1 more card." << endl;
+	cout << "       If you draw 1 card by this effect, you can throw your dice again." << endl;
+	cout << endl;
+	cout << endl;
+	
+	cout << "5.Assassin" << endl;
+	cout << "Assassin is life reaper. He is the avatar of God of Death." << endl;
+	cout << endl;
+	cout << "********************************************************************************************************************************\n\n" << endl;
+	cout << "Stats: Not changed" << endl;
+	cout << "Skill: At the beginning of your turn, you can discard 1 health for exchanging 2 more cards from the deck."<< endl;
+	cout << endl;
+	cout << endl;
+
+	cout << "Hi," <<  player1name << endl;
+	cout << "You can select one of the gladiator you like." << endl;
+	cin >> *Champion1;
+	
+	cout << "Hi," << player2name << endl;
+	cout << "You can select one of the gladiator you like." << endl;
+	cin >> *Champion2;
+
+
+	if (*Champion1==2)
+	{
+		*Hp1-=1;
+		gladiator1="Archer";
+	}
+	if (*Champion2== 2)
+	{
+		*Hp2-=1;
+		gladiator2="Archer";
+	}
+	if (*Champion1==1)
+	{
+		*Hp1+=1;
+		*Attack1+=1;
+		gladiator1="Barbarian";
+	}
+	if (*Champion2==1)
+	{
+		*Hp2+=1;
+		*Attack2+=1;
+		gladiator2="Barbarian";
+	}
+	if (*Champion1==3)
+	{
+		*Hp1+=1;
+		gladiator1="Rider";
+	}
+	if (*Champion2==3)
+	{
+		*Hp2+=1;
+		gladiator2="Rider";
+	}
+	if (*Champion1==4)
+	{
+		*Hp1-=1;
+		gladiator1="Assassin";
+	}
+	if (*Champion2== 4)
+	{
+		*Hp2-=1;
+		gladiator2="Assassin";
+	}
+	if (*Champion1==5)
+	{
+		gladiator1="Caster";
+	}
+	if (*Champion2== 5)
+	{
+		gladiator2="Caster";
+	}
+}
+
+void firstdraw(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2)
+{
+	int n;
+	srand ((unsigned)time(NULL));
+
+	cout <<"Battle Start!" << endl;
+
+	for (int t = 0;t<4;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+	}
+	for (int i = 0;i<4;i++)
+	{
+		n = rand()%100+1;
+
+		if(n>=1&&n<=40)
+		{
+			*kill2+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge2+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion2+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow2+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening2+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset2+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix2+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty2+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper2+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield2+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor2+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy2+=1;
+		}
+		else
+		{
+			*plague2+=1;
+		}
+	}
+	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+}
+
+void Archer(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2, double *currenthp1, double *currenthp2, double Hp1, double Hp2, string player1name,string player2name, double* showcard1, double *accumulateattack1, double *round, string gladiator1, string gladiator2) //2+5+3
+{
+	double startnumber =0;
+	double n =0;
+	double arrowjudge =0;
+	double sunsetdiscard1 = 0;
+	double sunsetdiscard2 = 0;
+	double greedydraw1 = 0;
+	double greedydrawsecond1 = 0;
+	double fatetoss1 = 0;
+	double fatetoss2 = 0;
+	double fate1 = 0;
+	double fate2 = 0;
+    double totaldiscards1 = 0;
+	double discardskill1 = 0;
+	double	discardsdodge1 = 0; 
+	double discardspotion1 = 0; 
+	double discardsfirearrow1 = 0;
+	double discardslightening1 = 0;
+	double discardssunset1 = 0;
+	double discardsbloodthirsty1 = 0;
+	double discardsreaper1 = 0;
+	double discardsphoenix1 = 0;
+	double discardsshield1 = 0;
+	double discardsarmor1 = 0;
+	double discardsgreedy1 = 0;
+	double discardsplague1 = 0;
+    char yesnododge;
+	char yesnopotion;
+	double sunsetkill;
+	double sunsetdodge;
+	double sunsetpotion;
+	double sunsetfirearrow;
+	double sunsetlightening;
+	double sunsetsunset;
+	double sunsetbloodthirsty;
+	double sunsetreaper;
+	double sunsetshield;
+	double sunsetarmor;
+	double sunsetgreedy;
+	double sunsetplague;
+
+	srand ((unsigned)time(NULL));
+
+	*round += 1;
+	if (*round==1)
+	{
+	*currenthp1 = hp1;
+	*currenthp2 = hp2;
+	}
+	cout <<"Player " << player1name << " Turn " << endl;  //player 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	cout <<"Please type '1' to draw 2 cards." << endl;
+	cin >> startnumber;
+
+	while(startnumber!=1)
+	{
+		cout <<"please tell us you are ready. Press " << endl;
+		cin >> startnumber;
+
+	}
+
+	for (int t = 0;t<2;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		
+
+	}
+  
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards(Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards(Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+	while (*showcard1 !=0 )///importance!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+
+
+
+
+	if (*showcard1 == 1)
+	{
+		if (*kill1 > 0&&*accumulateattack1 == 0)
+		{
+			*kill1-=1;
+			*accumulateattack1+=1;
+			if(*dodge2>0)
+			{
+				cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else 
+				{
+					arrowjudge = rand()%2+1;
+					if (arrowjudge==1)
+					{
+						*currenthp2-=1;
+						if (*currenthp2==0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2==0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+					}
+					else 
+					{
+						*currenthp2-=2;
+						cout << "Acher fires his deadly arrow! 1 extra damage on the enemy!" << endl;
+						if (*currenthp2<=0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2<=0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+					}
+				}
+			}
+			else
+			{
+					arrowjudge = rand()%2+1;
+					if (arrowjudge==1)
+					{
+						*currenthp2-=1;
+						if (*currenthp2==0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2==0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+					}
+					else 
+					{
+						*currenthp2-=2;
+						cout << "Acher fires his deadly arrow! 1 extra damage on the enemy!" << endl;
+						if (*currenthp2<=0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2<=0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough attacks or you have already attacked the enemy" << endl;
+			
+		}
+	}
+
+	if (*showcard1 ==2)
+	{
+		if (*potion1>0&&*currenthp1<Hp1)
+		{
+			cout <<"Player " << player1name << ", do you want to drink a potion?(y or n)" << endl;
+			cin	>> yesnopotion;
+			if (yesnopotion=='y')
+			{
+				*currenthp1+=1;
+				*potion1-=1;
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough potion or you dont need medicare right now." << endl;
+		}
+	}
+
+		if (*showcard1 == 3)
+	{
+		if (*firearrow1 > 0)
+		{
+			*firearrow1-=1;
+				if (*armor1>0)
+				{
+					*armor1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Fire Arrow." << endl;
+		}
+	}
+
+	if (*showcard1 == 4)
+	{
+		if (*lightening1 > 0)
+		{
+			*lightening1-=1;
+				if (*shield1>0)
+				{
+					*shield1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Shield of Zeus." << endl;
+		}
+	}
+
+	if (*showcard1 ==5)
+	{
+		if (*sunset1 > 0&&*totalcards2>0)
+		{
+			*sunset1-=1;
+			n = 10;
+			sunsetkill= *kill2;
+			sunsetdodge = *dodge2;
+			sunsetpotion = *potion2;
+			sunsetfirearrow = *firearrow2;
+			sunsetlightening = *lightening2;
+			sunsetsunset = *sunset2;
+			sunsetbloodthirsty = *bloodthirsty2;
+			sunsetreaper = *reaper2;
+			sunsetshield = *shield2;
+			sunsetarmor = *armor2;
+			sunsetgreedy = *greedy2;
+			sunsetplague = *plague2;
+
+			while (n>*totalcards2)
+			{
+			n=rand()%5 +1;
+			if(0<n && n<=sunsetkill)
+			{
+				*kill2-=1;
+			}
+			if(sunsetkill<n && n<=sunsetkill + sunsetdodge)
+			{
+				*dodge2-=1;
+			}
+			if(sunsetkill + sunsetdodge<n && n<=sunsetkill + sunsetdodge + sunsetpotion)
+			{
+				*potion2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow)
+			{
+				*firearrow2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening)
+			{
+				*lightening2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset)
+			{
+				*sunset2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty)
+			{
+				*bloodthirsty2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper)
+			{
+				*reaper2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield)
+			{
+				*shield2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor)
+			{
+				*armor2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy)
+			{
+				*greedy2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy + sunsetplague)
+			{
+				*plague2-=1;
+			}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough sunset or your opponent doesn't have any card in hand. " << endl;
+		}
+
+
+	}
+	if (*showcard1 == 6)
+	{
+		if (*bloodthirsty1>0&&*currenthp1<Hp1)
+		{
+			*bloodthirsty1-=1;
+			if (*dodge2 >0)
+			{
+				cout << "The enemy uses Bloodthirsty Blade, do you want to dodge?(enter y or n)"<< endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else
+				{
+					*currenthp2-=1;
+					*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+			}
+			else
+			{
+				*currenthp2-=1;
+				*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you can not use Bloodthirsty Blade right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 7)
+	{
+		if (*reaper1>0&&*currenthp2<=2)
+		{
+			*reaper1-=1;
+			*currenthp2-=2;
+			if (*currenthp2<=0&&*phoenix2>0)
+			{
+				*currenthp2=1;
+				*phoenix2-=1;
+			}
+			else 
+			{
+				cout << "You are victorious. " << player2name << " lost the game." << endl;
+				exit(0);
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Reaper or you are not able to use it right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 8)
+	{
+		if (*greedy1 > 0)
+		{
+			*greedy1-=1;
+			*totalcards1+=2;
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+			
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+	
+		}
+
+			if (*showcard1 == 9)
+	{
+		if (*plague1 > 0)
+		{
+
+			*plague1-=1;
+			cout << player1name << "You use the plague in this battlefield, the wrath of God will determine your fate." << endl;
+
+			
+			cout << "Player1 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player1,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss1;
+			while (fatetoss1 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin>> fatetoss1;
+			}
+
+			fate1 = rand()%100+1;
+			cout << fate1 << endl;
+			
+
+			cout << endl;
+			cout << endl;
+			cout << "Player2 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player2,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss2;
+
+			while (fatetoss2 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin >> fatetoss2;
+			}
+
+				fate2 = rand()%100+1;
+				cout << fate2 << endl;
+		
+
+			if (fate1>=fate2)
+			{
+				*currenthp2-=2;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+
+			}
+			else 
+			{
+				*currenthp1-=1;
+				if (*currenthp1<=0)
+				{
+					if (*phoenix1>0)
+					{
+						*currenthp1=1;
+						*phoenix1-=1;
+					}
+					else
+					{
+						cout << "You are defeated. " << player2name << " win the game." << endl;
+					}
+				}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+			}
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards (Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards (Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+
+	// while loop ends
+
+	
+}
+
+			// player1 discard time
+  	 	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+		totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+		*accumulateattack1=0;
+	
+		if (*totalcards1 > *currenthp1)
+		{
+			cout << "You dont have enough strength to carry all your equipments. \nPlease drop " << *totalcards1 - *currenthp1 << " of that." << endl;
+			cout << "Please enter the amount of cards that you want to drop, respectively. \n " << endl;
+			while (totaldiscards1 != *totalcards1 - *currenthp1)
+			{
+				cout << "attack: ";
+				cin >> discardskill1;
+				while (discardskill1 >*kill1)
+				{
+					cout << "Sorry, you dont have enough attack. Please tell me how many attacks you want to drop." << endl;
+					cout << "attack: ";
+					cin >> discardskill1;
+				}
+
+
+
+				cout << "Dodge: ";
+				cin >> discardsdodge1;
+				while (discardsdodge1 >*dodge1)
+				{
+					cout << "Sorry, you dont have enough dodge. Please tell me how many dodges you want to drop." << endl;
+					cout << "Dodge: ";
+					cin >> discardsdodge1;
+				}
+
+
+
+				cout << "Potion: ";
+				cin >> discardspotion1;
+				while (discardspotion1 >*potion1)
+				{
+					cout << "Sorry, you dont have enough potion. Please tell me how many potions you want to drop." << endl;
+					cout << "Potion: ";
+					cin >> discardspotion1;
+				}
+
+
+
+				cout << "Fire Arrow: ";
+				cin >> discardsfirearrow1;
+				while	(discardsfirearrow1 > *firearrow1)
+				{
+					cout << "Sorry, you dont have enough Fire Arrow. Please tell me how many Fire Arrows you want to drop." << endl;
+					cout << "Fire Arrow: ";
+					cin >> discardsfirearrow1;
+				}
+
+				cout << "Lightening: ";
+				cin >> discardslightening1;
+				while	(discardslightening1 > *lightening1)
+				{
+					cout << "Sorry, you dont have enough Lightening. Please tell me how many Lightening you want to drop." << endl;
+					cout << "Lightening: ";
+					cin >> discardslightening1;
+				}
+
+				cout << "Sunset: ";
+				cin >> discardssunset1;
+				while	(discardssunset1 > *sunset1)
+				{
+					cout << "Sorry, you dont have enough Sunset Bow. Please tell me how many Sunset Bows you want to drop." << endl;
+					cout << "Sunset Bow: ";
+					cin >> discardssunset1;
+				}
+
+				cout << "Phoenix Wand: ";
+				cin >> discardsphoenix1;
+				while	(discardsphoenix1 > *phoenix1)
+				{
+					cout << "Sorry, you dont have enough Phoenix Wand. Please tell me how many Phoenix Wands you want to drop." << endl;
+					cout << "Phoenix Wand: ";
+					cin >> discardsphoenix1;
+				}
+
+				cout << "Bloodthirsty Blade: ";
+				cin >> discardsbloodthirsty1;
+				while	(discardsbloodthirsty1 > *bloodthirsty1)
+				{
+					cout << "Sorry, you dont have enough Bloodthirsty Blade. Please tell me how many Bloodthirsty Blades you want to drop." << endl;
+					cout << "Bloodthirsty Blade: ";
+					cin >> discardsbloodthirsty1;
+				}
+
+				cout << "Reaper: ";
+				cin >> discardsreaper1;
+				while	(discardsreaper1 > *reaper1)
+				{
+					cout << "Sorry, you dont have enough Reaper. Please tell me how many Reapers you want to drop." << endl;
+					cout << "Reaper: ";
+					cin >> discardsreaper1;
+				}
+
+
+				cout << "Shield of Zeus: ";
+				cin >> discardsshield1;
+				while	(discardsshield1 > *shield1)
+				{
+					cout << "Sorry, you dont have enough Shield of Zeus. Please tell me how many Shield of Zeus you want to drop." << endl;
+					cout << "Shield of Zeus: ";
+					cin >> discardsshield1;
+				}
+
+
+
+				cout << "Hephaestus Blessing: ";
+				cin >> discardsarmor1;
+				while	(discardsarmor1 > *armor1)
+				{
+					cout << "Sorry, you dont have enough Hephaestus Blessing. Please tell me how many Hephaestus Blessing you want to drop." << endl;
+					cout << "Hephaestus Blessing: ";
+					cin >> discardsarmor1;
+				}
+
+
+
+				cout << "Greedy Draw: ";
+				cin >> discardsgreedy1;
+				while	(discardsgreedy1 > *greedy1)
+				{
+					cout << "Sorry, you dont have enough Greedy Draw. Please tell me how many Greedy Draws you want to drop." << endl;
+					cout << "Greedy Draw: ";
+					cin >> discardsgreedy1;
+				}
+
+
+				cout << "Plague: ";
+				cin >> discardsplague1;
+				while	(discardsplague1 > *plague1)
+				{
+					cout << "Sorry, you dont have enough Plague. Please tell me how many Plague you want to drop." << endl;
+					cout << "Plague: ";
+					cin >> discardsplague1;
+				}
+
+				
+
+
+			totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+			if (totaldiscards1 > *totalcards1 - *currenthp1)
+				cout << "You dropped too many items. It's not quite wise. Please reconsider.\n" << endl;
+			if (totaldiscards1 < *totalcards1 - *currenthp1)
+				cout << "You can't carry all of that. Please tell me again. \n " << endl;
+			}
+
+			*kill1 = *kill1 - discardskill1;
+
+			*dodge1 = *dodge1 - discardsdodge1;
+
+			*potion1 = *potion1 - discardspotion1;
+
+			*firearrow1 = *firearrow1 - discardsfirearrow1;
+
+			*lightening1 = *lightening1 - discardslightening1;
+
+			*sunset1 = *sunset1 - discardssunset1;
+
+			*phoenix1 = *phoenix1 - discardsphoenix1;
+
+			*bloodthirsty1 = *bloodthirsty1 - discardsbloodthirsty1;
+
+			*reaper1 = *reaper1 - discardsreaper1;
+
+			*shield1 = *shield1 - discardsshield1;
+
+			*armor1 = *armor1 - discardsarmor1;
+
+			*greedy1 = *greedy1 - discardsgreedy1;
+
+			*plague1 = *plague1 - discardsplague1;
+
+
+		
+	}
+	cout <<"Your turn is over.\n\n\n" << endl; // Player1 turn is over*
+
+
+	}
+
+void Barbarian(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2, double *currenthp1, double *currenthp2, double Hp1, double Hp2, string player1name,string player2name, double* showcard1, double *accumulateattack1, double *round, string gladiator1, string gladiator2) //2+5+3
+{
+	double startnumber =0;
+	double n =0;
+	double arrowjudge =0;
+	double sunsetdiscard1 = 0;
+	double sunsetdiscard2 = 0;
+	double greedydraw1 = 0;
+	double greedydrawsecond1 = 0;
+	double fatetoss1 = 0;
+	double fatetoss2 = 0;
+	double fate1 = 0;
+	double fate2 = 0;
+    double totaldiscards1 = 0;
+	double discardskill1 = 0;
+	double	discardsdodge1 = 0; 
+	double discardspotion1 = 0; 
+	double discardsfirearrow1 = 0;
+	double discardslightening1 = 0;
+	double discardssunset1 = 0;
+	double discardsbloodthirsty1 = 0;
+	double discardsreaper1 = 0;
+	double discardsphoenix1 = 0;
+	double discardsshield1 = 0;
+	double discardsarmor1 = 0;
+	double discardsgreedy1 = 0;
+	double discardsplague1 = 0;
+    char yesnododge;
+	char yesnopotion;
+	double sunsetkill;
+	double sunsetdodge;
+	double sunsetpotion;
+	double sunsetfirearrow;
+	double sunsetlightening;
+	double sunsetsunset;
+	double sunsetbloodthirsty;
+	double sunsetreaper;
+	double sunsetshield;
+	double sunsetarmor;
+	double sunsetgreedy;
+	double sunsetplague;
+
+	srand ((unsigned)time(NULL));
+
+	*round += 1;
+	if (*round==1)
+	{
+	*currenthp1 = hp1;
+	*currenthp2 = hp2;
+	}
+	cout <<"Player " << player1name << " Turn " << endl;  //player 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	cout <<"Please type '1' to draw 2 cards." << endl;
+	cin >> startnumber;
+
+	while(startnumber!=1)
+	{
+		cout <<"please tell us you are ready. Press " << endl;
+		cin >> startnumber;
+
+	}
+
+	for (int t = 0;t<2;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		
+
+	}
+  
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards(Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards(Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+	while (*showcard1 !=0 )///importance!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+
+
+
+
+	if (*showcard1 == 1)
+	{
+		if (*kill1 >= 2&&*accumulateattack1 == 0)
+		{
+			*kill1-=2;
+			*accumulateattack1+=1;
+			if(*dodge2>0)
+			{
+				cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else 
+				{
+	
+						*currenthp2-=2;
+						cout <<"Barbarian charges to his enemy and brandish his deadly axe!" << endl;
+						if (*currenthp2<=0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2<=0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+					}
+				}
+			
+			else
+			{
+						*currenthp2-=2;
+						cout <<"Barbarian charges to his enemy and brandish his deadly axe!" << endl;
+						if (*currenthp2<=0&&*phoenix2>0)
+						{
+							*currenthp2=1;
+							*phoenix2-=1;
+						}
+						if (*currenthp2<=0&&*phoenix2==0)
+						{
+							cout << "You are victorious. " << player2name << " lost the game." << endl;
+							exit(0);
+						}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough attacks or you have already attacked the enemy" << endl;
+			
+		}
+	}
+
+	if (*showcard1 ==2)
+	{
+		if (*potion1>0&&*currenthp1<Hp1)
+		{
+			cout <<"Player " << player1name << ", do you want to drink a potion?(y or n)" << endl;
+			cin	>> yesnopotion;
+			if (yesnopotion=='y')
+			{
+				*currenthp1+=1;
+				*potion1-=1;
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough potion or you dont need medicare right now." << endl;
+		}
+	}
+
+		if (*showcard1 == 3)
+	{
+		if (*firearrow1 > 0)
+		{
+			*firearrow1-=1;
+				if (*armor1>0)
+				{
+					*armor1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Fire Arrow." << endl;
+		}
+	}
+
+	if (*showcard1 == 4)
+	{
+		if (*lightening1 > 0)
+		{
+			*lightening1-=1;
+				if (*shield1>0)
+				{
+					*shield1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Shield of Zeus." << endl;
+		}
+	}
+
+	if (*showcard1 ==5)
+	{
+		if (*sunset1 > 0&&*totalcards2>0)
+		{
+			*sunset1-=1;
+			n = 10;
+			sunsetkill= *kill2;
+			sunsetdodge = *dodge2;
+			sunsetpotion = *potion2;
+			sunsetfirearrow = *firearrow2;
+			sunsetlightening = *lightening2;
+			sunsetsunset = *sunset2;
+			sunsetbloodthirsty = *bloodthirsty2;
+			sunsetreaper = *reaper2;
+			sunsetshield = *shield2;
+			sunsetarmor = *armor2;
+			sunsetgreedy = *greedy2;
+			sunsetplague = *plague2;
+
+			while (n>*totalcards2)
+			{
+			n=rand()%5 +1;
+			if(0<n && n<=sunsetkill)
+			{
+				*kill2-=1;
+			}
+			if(sunsetkill<n && n<=sunsetkill + sunsetdodge)
+			{
+				*dodge2-=1;
+			}
+			if(sunsetkill + sunsetdodge<n && n<=sunsetkill + sunsetdodge + sunsetpotion)
+			{
+				*potion2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow)
+			{
+				*firearrow2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening)
+			{
+				*lightening2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset)
+			{
+				*sunset2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty)
+			{
+				*bloodthirsty2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper)
+			{
+				*reaper2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield)
+			{
+				*shield2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor)
+			{
+				*armor2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy)
+			{
+				*greedy2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy + sunsetplague)
+			{
+				*plague2-=1;
+			}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough sunset or your opponent doesn't have any card in hand. " << endl;
+		}
+
+
+	}
+	if (*showcard1 == 6)
+	{
+		if (*bloodthirsty1>0&&*currenthp1<Hp1)
+		{
+			*bloodthirsty1-=1;
+			if (*dodge2 >0)
+			{
+				cout << "The enemy uses Bloodthirsty Blade, do you want to dodge?(enter y or n)"<< endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else
+				{
+					*currenthp2-=1;
+					*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+			}
+			else
+			{
+				*currenthp2-=1;
+				*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you can not use Bloodthirsty Blade right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 7)
+	{
+		if (*reaper1>0&&*currenthp2<=2)
+		{
+			*reaper1-=1;
+			*currenthp2-=2;
+			if (*currenthp2<=0&&*phoenix2>0)
+			{
+				*currenthp2=1;
+				*phoenix2-=1;
+			}
+			else 
+			{
+				cout << "You are victorious. " << player2name << " lost the game." << endl;
+				exit(0);
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Reaper or you are not able to use it right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 8)
+	{
+		if (*greedy1 > 0)
+		{
+			*greedy1-=1;
+			*totalcards1+=2;
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+			
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+	
+		}
+
+			if (*showcard1 == 9)
+	{
+		if (*plague1 > 0)
+		{
+
+			*plague1-=1;
+			cout << player1name << "You use the plague in this battlefield, the wrath of God will determine your fate." << endl;
+
+			
+			cout << "Player1 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player1,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss1;
+			while (fatetoss1 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin>> fatetoss1;
+			}
+
+			fate1 = rand()%100+1;
+			cout << fate1 << endl;
+			
+
+			cout << endl;
+			cout << endl;
+			cout << "Player2 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player2,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss2;
+
+			while (fatetoss2 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin >> fatetoss2;
+			}
+
+				fate2 = rand()%100+1;
+				cout << fate2 << endl;
+		
+
+			if (fate1>=fate2)
+			{
+				*currenthp2-=2;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+
+			}
+			else 
+			{
+				*currenthp1-=1;
+				if (*currenthp1<=0)
+				{
+					if (*phoenix1>0)
+					{
+						*currenthp1=1;
+						*phoenix1-=1;
+					}
+					else
+					{
+						cout << "You are defeated. " << player2name << " win the game." << endl;
+					}
+				}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+			}
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards (Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards (Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+
+	// while loop ends
+
+	
+}
+
+			// player1 discard time
+  	 	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+		totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+		*accumulateattack1=0;
+	
+		if (*totalcards1 > *currenthp1)
+		{
+			cout << "You dont have enough strength to carry all your equipments. \nPlease drop " << *totalcards1 - *currenthp1 << " of that." << endl;
+			cout << "Please enter the amount of cards that you want to drop, respectively. \n " << endl;
+			while (totaldiscards1 != *totalcards1 - *currenthp1)
+			{
+				cout << "attack: ";
+				cin >> discardskill1;
+				while (discardskill1 >*kill1)
+				{
+					cout << "Sorry, you dont have enough attack. Please tell me how many attacks you want to drop." << endl;
+					cout << "attack: ";
+					cin >> discardskill1;
+				}
+
+
+
+				cout << "Dodge: ";
+				cin >> discardsdodge1;
+				while (discardsdodge1 >*dodge1)
+				{
+					cout << "Sorry, you dont have enough dodge. Please tell me how many dodges you want to drop." << endl;
+					cout << "Dodge: ";
+					cin >> discardsdodge1;
+				}
+
+
+
+				cout << "Potion: ";
+				cin >> discardspotion1;
+				while (discardspotion1 >*potion1)
+				{
+					cout << "Sorry, you dont have enough potion. Please tell me how many potions you want to drop." << endl;
+					cout << "Potion: ";
+					cin >> discardspotion1;
+				}
+
+
+
+				cout << "Fire Arrow: ";
+				cin >> discardsfirearrow1;
+				while	(discardsfirearrow1 > *firearrow1)
+				{
+					cout << "Sorry, you dont have enough Fire Arrow. Please tell me how many Fire Arrows you want to drop." << endl;
+					cout << "Fire Arrow: ";
+					cin >> discardsfirearrow1;
+				}
+
+				cout << "Lightening: ";
+				cin >> discardslightening1;
+				while	(discardslightening1 > *lightening1)
+				{
+					cout << "Sorry, you dont have enough Lightening. Please tell me how many Lightening you want to drop." << endl;
+					cout << "Lightening: ";
+					cin >> discardslightening1;
+				}
+
+				cout << "Sunset: ";
+				cin >> discardssunset1;
+				while	(discardssunset1 > *sunset1)
+				{
+					cout << "Sorry, you dont have enough Sunset Bow. Please tell me how many Sunset Bows you want to drop." << endl;
+					cout << "Sunset Bow: ";
+					cin >> discardssunset1;
+				}
+
+				cout << "Phoenix Wand: ";
+				cin >> discardsphoenix1;
+				while	(discardsphoenix1 > *phoenix1)
+				{
+					cout << "Sorry, you dont have enough Phoenix Wand. Please tell me how many Phoenix Wands you want to drop." << endl;
+					cout << "Phoenix Wand: ";
+					cin >> discardsphoenix1;
+				}
+
+				cout << "Bloodthirsty Blade: ";
+				cin >> discardsbloodthirsty1;
+				while	(discardsbloodthirsty1 > *bloodthirsty1)
+				{
+					cout << "Sorry, you dont have enough Bloodthirsty Blade. Please tell me how many Bloodthirsty Blades you want to drop." << endl;
+					cout << "Bloodthirsty Blade: ";
+					cin >> discardsbloodthirsty1;
+				}
+
+				cout << "Reaper: ";
+				cin >> discardsreaper1;
+				while	(discardsreaper1 > *reaper1)
+				{
+					cout << "Sorry, you dont have enough Reaper. Please tell me how many Reapers you want to drop." << endl;
+					cout << "Reaper: ";
+					cin >> discardsreaper1;
+				}
+
+
+				cout << "Shield of Zeus: ";
+				cin >> discardsshield1;
+				while	(discardsshield1 > *shield1)
+				{
+					cout << "Sorry, you dont have enough Shield of Zeus. Please tell me how many Shield of Zeus you want to drop." << endl;
+					cout << "Shield of Zeus: ";
+					cin >> discardsshield1;
+				}
+
+
+
+				cout << "Hephaestus Blessing: ";
+				cin >> discardsarmor1;
+				while	(discardsarmor1 > *armor1)
+				{
+					cout << "Sorry, you dont have enough Hephaestus Blessing. Please tell me how many Hephaestus Blessing you want to drop." << endl;
+					cout << "Hephaestus Blessing: ";
+					cin >> discardsarmor1;
+				}
+
+
+
+				cout << "Greedy Draw: ";
+				cin >> discardsgreedy1;
+				while	(discardsgreedy1 > *greedy1)
+				{
+					cout << "Sorry, you dont have enough Greedy Draw. Please tell me how many Greedy Draws you want to drop." << endl;
+					cout << "Greedy Draw: ";
+					cin >> discardsgreedy1;
+				}
+
+
+				cout << "Plague: ";
+				cin >> discardsplague1;
+				while	(discardsplague1 > *plague1)
+				{
+					cout << "Sorry, you dont have enough Plague. Please tell me how many Plague you want to drop." << endl;
+					cout << "Plague: ";
+					cin >> discardsplague1;
+				}
+
+				
+
+
+			totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+			if (totaldiscards1 > *totalcards1 - *currenthp1)
+				cout << "You dropped too many items. It's not quite wise. Please reconsider.\n" << endl;
+			if (totaldiscards1 < *totalcards1 - *currenthp1)
+				cout << "You can't carry all of that. Please tell me again. \n " << endl;
+			}
+
+			*kill1 = *kill1 - discardskill1;
+
+			*dodge1 = *dodge1 - discardsdodge1;
+
+			*potion1 = *potion1 - discardspotion1;
+
+			*firearrow1 = *firearrow1 - discardsfirearrow1;
+
+			*lightening1 = *lightening1 - discardslightening1;
+
+			*sunset1 = *sunset1 - discardssunset1;
+
+			*phoenix1 = *phoenix1 - discardsphoenix1;
+
+			*bloodthirsty1 = *bloodthirsty1 - discardsbloodthirsty1;
+
+			*reaper1 = *reaper1 - discardsreaper1;
+
+			*shield1 = *shield1 - discardsshield1;
+
+			*armor1 = *armor1 - discardsarmor1;
+
+			*greedy1 = *greedy1 - discardsgreedy1;
+
+			*plague1 = *plague1 - discardsplague1;
+
+
+		
+	}
+	cout <<"Your turn is over.\n\n\n" << endl; // Player1 turn is over*
+
+
+	}
+
+void Rider(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2, double *currenthp1, double *currenthp2, double Hp1, double Hp2, string player1name,string player2name, double* showcard1, double *accumulateattack1, double *round, string gladiator1, string gladiator2) //2+5+3
+{
+	double startnumber =0;
+	double n =0;
+	double arrowjudge =0;
+	double sunsetdiscard1 = 0;
+	double sunsetdiscard2 = 0;
+	double greedydraw1 = 0;
+	double greedydrawsecond1 = 0;
+	double fatetoss1 = 0;
+	double fatetoss2 = 0;
+	double fate1 = 0;
+	double fate2 = 0;
+    double totaldiscards1 = 0;
+	double discardskill1 = 0;
+	double	discardsdodge1 = 0; 
+	double discardspotion1 = 0; 
+	double discardsfirearrow1 = 0;
+	double discardslightening1 = 0;
+	double discardssunset1 = 0;
+	double discardsbloodthirsty1 = 0;
+	double discardsreaper1 = 0;
+	double discardsphoenix1 = 0;
+	double discardsshield1 = 0;
+	double discardsarmor1 = 0;
+	double discardsgreedy1 = 0;
+	double discardsplague1 = 0;
+	char yesno;
+    char yesnododge;
+	char yesnopotion;
+	double sunsetkill;
+	double sunsetdodge;
+	double sunsetpotion;
+	double sunsetfirearrow;
+	double sunsetlightening;
+	double sunsetsunset;
+	double sunsetbloodthirsty;
+	double sunsetreaper;
+	double sunsetshield;
+	double sunsetarmor;
+	double sunsetgreedy;
+	double sunsetplague;
+	double executiondiscard = 0;
+	double accumulatesacrify = 0;
+
+	srand ((unsigned)time(NULL));
+
+	*round += 1;
+	if (*round==1)
+	{
+	*currenthp1 = hp1;
+	*currenthp2 = hp2;
+	}
+	cout <<"Player " << player1name << " Turn " << endl;  //player 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	cout <<"Please type '1' to draw 2 cards." << endl;
+	cin >> startnumber;
+
+	while(startnumber!=1)
+	{
+		cout <<"please tell us you are ready. Press " << endl;
+		cin >> startnumber;
+
+	}
+
+	for (int t = 0;t<2;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		
+
+	}
+  
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards(Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards(Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+	while (*showcard1 !=0 )///importance!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+
+
+
+
+	if (*showcard1 == 1)
+	{
+		// he can attack and i could 
+		if (*kill1 > 0&&*accumulateattack1 == 0)
+		{
+			*kill1-=1;
+			*accumulateattack1+=1;
+  	 	    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+
+			if (*totalcards1 >=2)
+			{
+				cout << "Do you want to ignite the skill(Execution)? Press(y or n)." << endl;
+				cin >> yesno;
+
+				if (yesno=='y')
+				{
+					cout << "Please select 2 cards to discard!" << endl;
+					cout << "Please choose which card you want to discard" << endl;
+					cout << "Please enter the number of the card" << endl;
+					cout << endl;
+					cout << "  Active cards: " << endl;
+					cout << "1.Attack " << *kill1 << endl;
+					cout << "2.Potion " << *potion1 << endl;
+					cout << "3.Fire Arrow " << *firearrow1 << endl;
+					cout << "4.Lightening " << *lightening1 << endl;
+					cout << "5.Sunset Bow " << *sunset1 << endl;
+					cout << "6.Bloodthirsty Blade " << *bloodthirsty1 << endl;
+					cout << "7.Reaper " <<* reaper1 << endl;
+					cout << "8.Greedy Draw " << *greedy1 << endl;
+					cout << "9.Plague " << *plague1 << endl;
+					cout << endl;
+					cout << "   Passive cards:" << endl;
+					cout << "10.Dodge " << *dodge1 << endl;
+					cout << "11.Phoenix Wand " << *phoenix1 << endl;
+					cout << "12.Shield of Zeus " << *shield1 << endl;
+					cout << "13.Hephaestus Blessing " << *armor1 << endl;
+					cout << endl;
+
+					while (accumulatesacrify != 2)
+					{
+						cout << "Please enter the number of the card." << endl;
+
+						cout << endl;
+	
+						cin >> executiondiscard;
+
+						if(executiondiscard == 1)
+						{
+							if (*kill1>0)
+							{
+							cout << " You discard Attack card " << endl;
+							*kill1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any kill card." << endl;
+							}
+						}
+						else if(executiondiscard == 2)
+						{
+							if (*potion1>0)
+							{
+							cout << " You discard Potion card " << endl;
+							*potion1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any potion card." << endl;
+							}
+						}
+						else if(executiondiscard == 3)
+						{
+							if (*firearrow1>0)
+							{
+							cout << " You discard Fire Arrow card " << endl;
+							*firearrow1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Arrow card." << endl;
+							}
+						}	
+						else if(executiondiscard == 4)
+						{
+							if (*lightening1>0)
+							{
+							cout << " You discard Lightening card " << endl;
+							*lightening1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Lightening card." << endl;
+							}
+						}
+						else if(executiondiscard == 5)
+						{
+							if (*sunset1>0)
+							{
+							cout << " You discard Sunset Bow card " << endl;
+							*sunset1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Sunset Bow card." << endl;
+							}
+						}
+						else if(executiondiscard == 6)
+						{
+							if (*bloodthirsty1>0)
+							{
+							cout << " You discard Bloodthirsty card " << endl;
+							*bloodthirsty1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Bloodthirsty card." << endl;
+							}
+						}
+
+						else if(executiondiscard == 7)
+						{
+							if (*reaper1>0)
+							{
+							cout << " You discard Reaper card " << endl;
+							*reaper1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Reaper card." << endl;
+							}
+
+						}
+
+						else if(executiondiscard == 8)
+						{
+							if (*greedy1>0)
+							{
+							cout << " You discard Greedy Draw card " << endl;
+							*greedy1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Greedy Draw card." << endl;
+							}
+						}
+						else if(executiondiscard == 9)
+						{
+							if (*plague1>0)
+							{
+							cout << " You discard Plague card " << endl;
+							*plague1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Plague card." << endl;
+							}
+						}
+						else if(executiondiscard == 10)
+						{
+							if (*dodge1>0)
+							{
+							cout << " You discard dodge card " << endl;
+							*dodge1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any dodge card." << endl;
+							}
+						}
+						else if(executiondiscard == 11)
+						{
+							if (*phoenix1>0)
+							{
+							cout << " You discard Phoenix Wand card " << endl;
+							*phoenix1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Phoenix Wand card." << endl;
+							}
+						}		
+						else if(executiondiscard == 12)
+						{
+							if (*shield1>0)
+							{
+							cout << " You discard Shield of Zeus card " << endl;
+							*shield1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Shield of Zeus card." << endl;
+							}
+						}
+						else if(executiondiscard == 13)
+						{
+							if (*armor1>0)
+							{
+							cout << " You discard Hephaestus Blessing card " << endl;
+							*armor1-=1;
+							accumulatesacrify+=1;
+							}
+							else
+							{
+								cout << "Sorry, you dont have any Hephaestus Blessing card." << endl;
+							}
+						}
+						else
+						{
+							cout << " You enter the wrong number" << endl;
+						}
+                    }
+
+					*currenthp2-=2;
+					cout << "All hail Riders!!!" << endl;
+
+					
+					if (*currenthp2==0)
+					{
+						cout<< "You are victorious." << player2name << " have been executed." << endl;
+						exit(0);
+					}
+				}
+				else
+				{
+					cout << "Attack still activated!" << endl;
+
+						if(*dodge2>0)
+						{
+							cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+							cin >> yesnododge;
+							if (yesnododge == 'y')
+							{
+								*dodge2-=1;
+							}
+							else 
+							{
+								*currenthp2-=1;
+								if (*currenthp2==0&&*phoenix2>0)
+								{
+									*currenthp2=1;
+									*phoenix2-=1;
+								}
+								if (*currenthp2==0&&*phoenix2==0)
+								{
+									cout << "You are victorious. " << player2name << " lost the game." << endl;
+									exit(0);
+								}	
+							}
+						}
+						else 
+						{
+								*currenthp2-=1;
+								if (*currenthp2==0&&*phoenix2>0)
+								{
+									*currenthp2=1;
+									*phoenix2-=1;
+								}
+								if (*currenthp2==0&&*phoenix2==0)
+								{
+									cout << "You are victorious. " << player2name << " lost the game." << endl;
+									exit(0);
+								}	
+						}
+				}
+			}
+			else 
+			{
+						if(*dodge2>0)
+						{
+							cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+							cin >> yesnododge;
+							if (yesnododge == 'y')
+							{
+								*dodge2-=1;
+							}
+							else 
+							{
+								*currenthp2-=1;
+								if (*currenthp2==0&&*phoenix2>0)
+								{
+									*currenthp2=1;
+									*phoenix2-=1;
+								}
+								if (*currenthp2==0&&*phoenix2==0)
+								{
+									cout << "You are victorious. " << player2name << " lost the game." << endl;
+									exit(0);
+								}	
+							}
+						}
+						else 
+						{
+								*currenthp2-=1;
+								if (*currenthp2==0&&*phoenix2>0)
+								{
+									*currenthp2=1;
+									*phoenix2-=1;
+								}
+								if (*currenthp2==0&&*phoenix2==0)
+								{
+									cout << "You are victorious. " << player2name << " lost the game." << endl;
+									exit(0);
+								}	
+						}
+
+		}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough attacks or you have already attacked the enemy" << endl;
+			
+		}
+	}
+
+	if (*showcard1 ==2)
+	{
+		if (*potion1>0&&*currenthp1<Hp1)
+		{
+			cout <<"Player " << player1name << ", do you want to drink a potion?(y or n)" << endl;
+			cin	>> yesnopotion;
+			if (yesnopotion=='y')
+			{
+				*currenthp1+=1;
+				*potion1-=1;
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough potion or you dont need medicare right now." << endl;
+		}
+	}
+
+		if (*showcard1 == 3)
+	{
+		if (*firearrow1 > 0)
+		{
+			*firearrow1-=1;
+				if (*armor1>0)
+				{
+					*armor1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Fire Arrow." << endl;
+		}
+	}
+
+	if (*showcard1 == 4)
+	{
+		if (*lightening1 > 0)
+		{
+			*lightening1-=1;
+				if (*shield1>0)
+				{
+					*shield1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Shield of Zeus." << endl;
+		}
+	}
+
+	if (*showcard1 ==5)
+	{
+		if (*sunset1 > 0&&*totalcards2>0)
+		{
+			*sunset1-=1;
+			n = 10;
+			sunsetkill= *kill2;
+			sunsetdodge = *dodge2;
+			sunsetpotion = *potion2;
+			sunsetfirearrow = *firearrow2;
+			sunsetlightening = *lightening2;
+			sunsetsunset = *sunset2;
+			sunsetbloodthirsty = *bloodthirsty2;
+			sunsetreaper = *reaper2;
+			sunsetshield = *shield2;
+			sunsetarmor = *armor2;
+			sunsetgreedy = *greedy2;
+			sunsetplague = *plague2;
+
+			while (n>*totalcards2)
+			{
+			n=rand()%5 +1;
+			if(0<n && n<=sunsetkill)
+			{
+				*kill2-=1;
+			}
+			if(sunsetkill<n && n<=sunsetkill + sunsetdodge)
+			{
+				*dodge2-=1;
+			}
+			if(sunsetkill + sunsetdodge<n && n<=sunsetkill + sunsetdodge + sunsetpotion)
+			{
+				*potion2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow)
+			{
+				*firearrow2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening)
+			{
+				*lightening2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset)
+			{
+				*sunset2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty)
+			{
+				*bloodthirsty2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper)
+			{
+				*reaper2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield)
+			{
+				*shield2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor)
+			{
+				*armor2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy)
+			{
+				*greedy2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy + sunsetplague)
+			{
+				*plague2-=1;
+			}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough sunset or your opponent doesn't have any card in hand. " << endl;
+		}
+
+
+	}
+	if (*showcard1 == 6)
+	{
+		if (*bloodthirsty1>0&&*currenthp1<Hp1)
+		{
+			*bloodthirsty1-=1;
+			if (*dodge2 >0)
+			{
+				cout << "The enemy uses Bloodthirsty Blade, do you want to dodge?(enter y or n)"<< endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else
+				{
+					*currenthp2-=1;
+					*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+			}
+			else
+			{
+				*currenthp2-=1;
+				*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you can not use Bloodthirsty Blade right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 7)
+	{
+		if (*reaper1>0&&*currenthp2<=2)
+		{
+			*reaper1-=1;
+			*currenthp2-=2;
+			if (*currenthp2<=0&&*phoenix2>0)
+			{
+				*currenthp2=1;
+				*phoenix2-=1;
+			}
+			else 
+			{
+				cout << "You are victorious. " << player2name << " lost the game." << endl;
+				exit(0);
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Reaper or you are not able to use it right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 8)
+	{
+		if (*greedy1 > 0)
+		{
+			*greedy1-=1;
+			*totalcards1+=2;
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+			
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+	
+		}
+
+			if (*showcard1 == 9)
+	{
+		if (*plague1 > 0)
+		{
+
+			*plague1-=1;
+			cout << player1name << "You use the plague in this battlefield, the wrath of God will determine your fate." << endl;
+
+			
+			cout << "Player1 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player1,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss1;
+			while (fatetoss1 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin>> fatetoss1;
+			}
+
+			fate1 = rand()%100+1;
+			cout << fate1 << endl;
+			
+
+			cout << endl;
+			cout << endl;
+			cout << "Player2 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player2,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss2;
+
+			while (fatetoss2 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin >> fatetoss2;
+			}
+
+				fate2 = rand()%100+1;
+				cout << fate2 << endl;
+		
+
+			if (fate1>=fate2)
+			{
+				*currenthp2-=2;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+
+			}
+			else 
+			{
+				*currenthp1-=1;
+				if (*currenthp1<=0)
+				{
+					if (*phoenix1>0)
+					{
+						*currenthp1=1;
+						*phoenix1-=1;
+					}
+					else
+					{
+						cout << "You are defeated. " << player2name << " win the game." << endl;
+					}
+				}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+			}
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards (Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards (Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+
+	// while loop ends
+
+	
+}
+
+			// player1 discard time
+  	 	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+		totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+		*accumulateattack1=0;
+	
+		if (*totalcards1 > *currenthp1)
+		{
+			cout << "You dont have enough strength to carry all your equipments. \nPlease drop " << *totalcards1 - *currenthp1 << " of that." << endl;
+			cout << "Please enter the amount of cards that you want to drop, respectively. \n " << endl;
+			while (totaldiscards1 != *totalcards1 - *currenthp1)
+			{
+				cout << "attack: ";
+				cin >> discardskill1;
+				while (discardskill1 >*kill1)
+				{
+					cout << "Sorry, you dont have enough attack. Please tell me how many attacks you want to drop." << endl;
+					cout << "attack: ";
+					cin >> discardskill1;
+				}
+
+
+
+				cout << "Dodge: ";
+				cin >> discardsdodge1;
+				while (discardsdodge1 >*dodge1)
+				{
+					cout << "Sorry, you dont have enough dodge. Please tell me how many dodges you want to drop." << endl;
+					cout << "Dodge: ";
+					cin >> discardsdodge1;
+				}
+
+
+
+				cout << "Potion: ";
+				cin >> discardspotion1;
+				while (discardspotion1 >*potion1)
+				{
+					cout << "Sorry, you dont have enough potion. Please tell me how many potions you want to drop." << endl;
+					cout << "Potion: ";
+					cin >> discardspotion1;
+				}
+
+
+
+				cout << "Fire Arrow: ";
+				cin >> discardsfirearrow1;
+				while	(discardsfirearrow1 > *firearrow1)
+				{
+					cout << "Sorry, you dont have enough Fire Arrow. Please tell me how many Fire Arrows you want to drop." << endl;
+					cout << "Fire Arrow: ";
+					cin >> discardsfirearrow1;
+				}
+
+				cout << "Lightening: ";
+				cin >> discardslightening1;
+				while	(discardslightening1 > *lightening1)
+				{
+					cout << "Sorry, you dont have enough Lightening. Please tell me how many Lightening you want to drop." << endl;
+					cout << "Lightening: ";
+					cin >> discardslightening1;
+				}
+
+				cout << "Sunset: ";
+				cin >> discardssunset1;
+				while	(discardssunset1 > *sunset1)
+				{
+					cout << "Sorry, you dont have enough Sunset Bow. Please tell me how many Sunset Bows you want to drop." << endl;
+					cout << "Sunset Bow: ";
+					cin >> discardssunset1;
+				}
+
+				cout << "Phoenix Wand: ";
+				cin >> discardsphoenix1;
+				while	(discardsphoenix1 > *phoenix1)
+				{
+					cout << "Sorry, you dont have enough Phoenix Wand. Please tell me how many Phoenix Wands you want to drop." << endl;
+					cout << "Phoenix Wand: ";
+					cin >> discardsphoenix1;
+				}
+
+				cout << "Bloodthirsty Blade: ";
+				cin >> discardsbloodthirsty1;
+				while	(discardsbloodthirsty1 > *bloodthirsty1)
+				{
+					cout << "Sorry, you dont have enough Bloodthirsty Blade. Please tell me how many Bloodthirsty Blades you want to drop." << endl;
+					cout << "Bloodthirsty Blade: ";
+					cin >> discardsbloodthirsty1;
+				}
+
+				cout << "Reaper: ";
+				cin >> discardsreaper1;
+				while	(discardsreaper1 > *reaper1)
+				{
+					cout << "Sorry, you dont have enough Reaper. Please tell me how many Reapers you want to drop." << endl;
+					cout << "Reaper: ";
+					cin >> discardsreaper1;
+				}
+
+
+				cout << "Shield of Zeus: ";
+				cin >> discardsshield1;
+				while	(discardsshield1 > *shield1)
+				{
+					cout << "Sorry, you dont have enough Shield of Zeus. Please tell me how many Shield of Zeus you want to drop." << endl;
+					cout << "Shield of Zeus: ";
+					cin >> discardsshield1;
+				}
+
+
+
+				cout << "Hephaestus Blessing: ";
+				cin >> discardsarmor1;
+				while	(discardsarmor1 > *armor1)
+				{
+					cout << "Sorry, you dont have enough Hephaestus Blessing. Please tell me how many Hephaestus Blessing you want to drop." << endl;
+					cout << "Hephaestus Blessing: ";
+					cin >> discardsarmor1;
+				}
+
+
+
+				cout << "Greedy Draw: ";
+				cin >> discardsgreedy1;
+				while	(discardsgreedy1 > *greedy1)
+				{
+					cout << "Sorry, you dont have enough Greedy Draw. Please tell me how many Greedy Draws you want to drop." << endl;
+					cout << "Greedy Draw: ";
+					cin >> discardsgreedy1;
+				}
+
+
+				cout << "Plague: ";
+				cin >> discardsplague1;
+				while	(discardsplague1 > *plague1)
+				{
+					cout << "Sorry, you dont have enough Plague. Please tell me how many Plague you want to drop." << endl;
+					cout << "Plague: ";
+					cin >> discardsplague1;
+				}
+
+				
+
+
+			totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+			if (totaldiscards1 > *totalcards1 - *currenthp1)
+				cout << "You dropped too many items. It's not quite wise. Please reconsider.\n" << endl;
+			if (totaldiscards1 < *totalcards1 - *currenthp1)
+				cout << "You can't carry all of that. Please tell me again. \n " << endl;
+			}
+
+			*kill1 = *kill1 - discardskill1;
+
+			*dodge1 = *dodge1 - discardsdodge1;
+
+			*potion1 = *potion1 - discardspotion1;
+
+			*firearrow1 = *firearrow1 - discardsfirearrow1;
+
+			*lightening1 = *lightening1 - discardslightening1;
+
+			*sunset1 = *sunset1 - discardssunset1;
+
+			*phoenix1 = *phoenix1 - discardsphoenix1;
+
+			*bloodthirsty1 = *bloodthirsty1 - discardsbloodthirsty1;
+
+			*reaper1 = *reaper1 - discardsreaper1;
+
+			*shield1 = *shield1 - discardsshield1;
+
+			*armor1 = *armor1 - discardsarmor1;
+
+			*greedy1 = *greedy1 - discardsgreedy1;
+
+			*plague1 = *plague1 - discardsplague1;
+
+
+		
+	}
+	cout <<"Your turn is over.\n\n\n" << endl; // Player1 turn is over*
+
+
+	}
+
+void Assassin(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2, double *currenthp1, double *currenthp2, double Hp1, double Hp2, string player1name,string player2name, double* showcard1, double *accumulateattack1, double *round, string gladiator1, string gladiator2) //2+5+3
+{
+	double startnumber =0;
+	double n =0;
+	double arrowjudge =0;
+	double sunsetdiscard1 = 0;
+	double sunsetdiscard2 = 0;
+	double greedydraw1 = 0;
+	double greedydrawsecond1 = 0;
+	double fatetoss1 = 0;
+	double fatetoss2 = 0;
+	double fate1 = 0;
+	double fate2 = 0;
+    double totaldiscards1 = 0;
+	double discardskill1 = 0;
+	double	discardsdodge1 = 0; 
+	double discardspotion1 = 0; 
+	double discardsfirearrow1 = 0;
+	double discardslightening1 = 0;
+	double discardssunset1 = 0;
+	double discardsbloodthirsty1 = 0;
+	double discardsreaper1 = 0;
+	double discardsphoenix1 = 0;
+	double discardsshield1 = 0;
+	double discardsarmor1 = 0;
+	double discardsgreedy1 = 0;
+	double discardsplague1 = 0;
+	char yesno;
+    char yesnododge;
+	char yesnopotion;
+	double sunsetkill;
+	double sunsetdodge;
+	double sunsetpotion;
+	double sunsetfirearrow;
+	double sunsetlightening;
+	double sunsetsunset;
+	double sunsetbloodthirsty;
+	double sunsetreaper;
+	double sunsetshield;
+	double sunsetarmor;
+	double sunsetgreedy;
+	double sunsetplague;
+
+	srand ((unsigned)time(NULL));
+
+	*round += 1;
+	if (*round==1)
+	{
+	*currenthp1 = hp1;
+	*currenthp2 = hp2;
+	}
+	cout <<"Player " << player1name << " Turn " << endl;  //player 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	cout <<"Please type '1' to draw 2 cards." << endl;
+	cin >> startnumber;
+
+	while(startnumber!=1)
+	{
+		cout <<"please tell us you are ready. Press " << endl;
+		cin >> startnumber;
+
+	}
+
+	for (int t = 0;t<2;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		
+
+	}
+  // assassin may activate his special ability.
+
+		while(*currenthp1>1||*phoenix1>0)
+	{
+
+		cout << "Do you want to drop 1 HP and draw 2 card?[y or n]): " << endl;
+		cin >> yesno;
+		if(yesno=='y')
+		{
+			*currenthp1-=1;
+			if (*currenthp1==0)
+			{
+				*currenthp1=1;
+				*phoenix1-=1;
+			}
+
+		for (int t = 0;t<2;t++)
+		{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		}
+		cout << "Assassin: I have more cards than you now! HAHAHAHAHAHAHAHAHAHAHAH!" << endl;
+
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards: " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+		}
+
+		else if(yesno=='n')
+		{
+						break;
+		}
+		
+		else 
+		{
+			 cout << "Please input y/n " << endl;
+			 continue;
+		 }
+	}
+
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards(Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards(Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+	while (*showcard1 !=0 )///importance!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+
+
+
+
+if (*showcard1 == 1)
+{
+		if (*kill1 > 0&&*accumulateattack1 == 0)
+		{
+			*kill1-=1;
+			*accumulateattack1+=1;
+			if(*dodge2>0)
+			{
+				cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else 
+				{	
+					*currenthp2-=1;
+					if (*currenthp2==0&&*phoenix2>0)
+					{
+						*currenthp2=1;
+						*phoenix2-=1;
+					}
+					if (*currenthp2==0&&*phoenix2==0)
+					{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					}
+				}
+			}
+			else 
+			{
+				*currenthp2-=1;
+
+				if (*currenthp2<=0&&*phoenix2>0)
+				{
+					*currenthp2=1;
+					*phoenix2-=1;
+				}
+				if (*currenthp2<=0&&*phoenix2==0)
+				{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+				}
+			}
+		}
+			
+
+		else
+		{
+			cout << "Sorry, you don't have enough attacks or you have already attacked the enemy" << endl;
+			
+		}
+	}
+
+
+
+	if (*showcard1 ==2)
+	{
+		if (*potion1>0&&*currenthp1<Hp1)
+		{
+			cout <<"Player " << player1name << ", do you want to drink a potion?(y or n)" << endl;
+			cin	>> yesnopotion;
+			if (yesnopotion=='y')
+			{
+				*currenthp1+=1;
+				*potion1-=1;
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough potion or you dont need medicare right now." << endl;
+		}
+	}
+
+		if (*showcard1 == 3)
+	{
+		if (*firearrow1 > 0)
+		{
+			*firearrow1-=1;
+				if (*armor1>0)
+				{
+					*armor1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Fire Arrow." << endl;
+		}
+	}
+
+	if (*showcard1 == 4)
+	{
+		if (*lightening1 > 0)
+		{
+			*lightening1-=1;
+				if (*shield1>0)
+				{
+					*shield1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Shield of Zeus." << endl;
+		}
+	}
+
+	if (*showcard1 ==5)
+	{
+		if (*sunset1 > 0&&*totalcards2>0)
+		{
+			*sunset1-=1;
+			n = 10;
+			sunsetkill= *kill2;
+			sunsetdodge = *dodge2;
+			sunsetpotion = *potion2;
+			sunsetfirearrow = *firearrow2;
+			sunsetlightening = *lightening2;
+			sunsetsunset = *sunset2;
+			sunsetbloodthirsty = *bloodthirsty2;
+			sunsetreaper = *reaper2;
+			sunsetshield = *shield2;
+			sunsetarmor = *armor2;
+			sunsetgreedy = *greedy2;
+			sunsetplague = *plague2;
+
+			while (n>*totalcards2)
+			{
+			n=rand()%5 +1;
+			if(0<n && n<=sunsetkill)
+			{
+				*kill2-=1;
+			}
+			if(sunsetkill<n && n<=sunsetkill + sunsetdodge)
+			{
+				*dodge2-=1;
+			}
+			if(sunsetkill + sunsetdodge<n && n<=sunsetkill + sunsetdodge + sunsetpotion)
+			{
+				*potion2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow)
+			{
+				*firearrow2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening)
+			{
+				*lightening2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset)
+			{
+				*sunset2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty)
+			{
+				*bloodthirsty2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper)
+			{
+				*reaper2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield)
+			{
+				*shield2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor)
+			{
+				*armor2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy)
+			{
+				*greedy2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy + sunsetplague)
+			{
+				*plague2-=1;
+			}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough sunset or your opponent doesn't have any card in hand. " << endl;
+		}
+
+
+	}
+	if (*showcard1 == 6)
+	{
+		if (*bloodthirsty1>0&&*currenthp1<Hp1)
+		{
+			*bloodthirsty1-=1;
+			if (*dodge2 >0)
+			{
+				cout << "The enemy uses Bloodthirsty Blade, do you want to dodge?(enter y or n)"<< endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else
+				{
+					*currenthp2-=1;
+					*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+			}
+			else
+			{
+				*currenthp2-=1;
+				*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you can not use Bloodthirsty Blade right now." << endl;
+		}
+	}
+
+
+	if (*showcard1 == 7)
+	{
+		if (*reaper1>0&&*currenthp2<=2)
+		{
+			*reaper1-=1;
+			*currenthp2-=2;
+			if (*currenthp2<=0&&*phoenix2>0)
+			{
+				*currenthp2=1;
+				*phoenix2-=1;
+			}
+			else 
+			{
+				cout << "You are victorious. " << player2name << " lost the game." << endl;
+				exit(0);
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Reaper or you are not able to use it right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 8)
+	{
+		if (*greedy1 > 0)
+		{
+			*greedy1-=1;
+			*totalcards1+=2;
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+			
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+	
+		}
+
+			if (*showcard1 == 9)
+	{
+		if (*plague1 > 0)
+		{
+
+			*plague1-=1;
+			cout << player1name << "You use the plague in this battlefield, the wrath of God will determine your fate." << endl;
+
+			
+			cout << "Player1 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player1,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss1;
+			while (fatetoss1 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin>> fatetoss1;
+			}
+
+			fate1 = rand()%100+1;
+			cout << fate1 << endl;
+			
+
+			cout << endl;
+			cout << endl;
+			cout << "Player2 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player2,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss2;
+
+			while (fatetoss2 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin >> fatetoss2;
+			}
+
+				fate2 = rand()%100+1;
+				cout << fate2 << endl;
+		
+
+			if (fate1>=fate2)
+			{
+				*currenthp2-=2;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+
+			}
+			else 
+			{
+				*currenthp1-=1;
+				if (*currenthp1<=0)
+				{
+					if (*phoenix1>0)
+					{
+						*currenthp1=1;
+						*phoenix1-=1;
+					}
+					else
+					{
+						cout << "You are defeated. " << player2name << " win the game." << endl;
+					}
+				}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+			}
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards (Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards (Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+
+	// while loop ends
+
+	
+}
+
+			// player1 discard time
+  	 	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+		totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+		*accumulateattack1=0;
+	
+		if (*totalcards1 > *currenthp1)
+		{
+			cout << "You dont have enough strength to carry all your equipments. \nPlease drop " << *totalcards1 - *currenthp1 << " of that." << endl;
+			cout << "Please enter the amount of cards that you want to drop, respectively. \n " << endl;
+			while (totaldiscards1 != *totalcards1 - *currenthp1)
+			{
+				cout << "attack: ";
+				cin >> discardskill1;
+				while (discardskill1 >*kill1)
+				{
+					cout << "Sorry, you dont have enough attack. Please tell me how many attacks you want to drop." << endl;
+					cout << "attack: ";
+					cin >> discardskill1;
+				}
+
+
+
+				cout << "Dodge: ";
+				cin >> discardsdodge1;
+				while (discardsdodge1 >*dodge1)
+				{
+					cout << "Sorry, you dont have enough dodge. Please tell me how many dodges you want to drop." << endl;
+					cout << "Dodge: ";
+					cin >> discardsdodge1;
+				}
+
+
+
+				cout << "Potion: ";
+				cin >> discardspotion1;
+				while (discardspotion1 >*potion1)
+				{
+					cout << "Sorry, you dont have enough potion. Please tell me how many potions you want to drop." << endl;
+					cout << "Potion: ";
+					cin >> discardspotion1;
+				}
+
+
+
+				cout << "Fire Arrow: ";
+				cin >> discardsfirearrow1;
+				while	(discardsfirearrow1 > *firearrow1)
+				{
+					cout << "Sorry, you dont have enough Fire Arrow. Please tell me how many Fire Arrows you want to drop." << endl;
+					cout << "Fire Arrow: ";
+					cin >> discardsfirearrow1;
+				}
+
+				cout << "Lightening: ";
+				cin >> discardslightening1;
+				while	(discardslightening1 > *lightening1)
+				{
+					cout << "Sorry, you dont have enough Lightening. Please tell me how many Lightening you want to drop." << endl;
+					cout << "Lightening: ";
+					cin >> discardslightening1;
+				}
+
+				cout << "Sunset: ";
+				cin >> discardssunset1;
+				while	(discardssunset1 > *sunset1)
+				{
+					cout << "Sorry, you dont have enough Sunset Bow. Please tell me how many Sunset Bows you want to drop." << endl;
+					cout << "Sunset Bow: ";
+					cin >> discardssunset1;
+				}
+
+				cout << "Phoenix Wand: ";
+				cin >> discardsphoenix1;
+				while	(discardsphoenix1 > *phoenix1)
+				{
+					cout << "Sorry, you dont have enough Phoenix Wand. Please tell me how many Phoenix Wands you want to drop." << endl;
+					cout << "Phoenix Wand: ";
+					cin >> discardsphoenix1;
+				}
+
+				cout << "Bloodthirsty Blade: ";
+				cin >> discardsbloodthirsty1;
+				while	(discardsbloodthirsty1 > *bloodthirsty1)
+				{
+					cout << "Sorry, you dont have enough Bloodthirsty Blade. Please tell me how many Bloodthirsty Blades you want to drop." << endl;
+					cout << "Bloodthirsty Blade: ";
+					cin >> discardsbloodthirsty1;
+				}
+
+				cout << "Reaper: ";
+				cin >> discardsreaper1;
+				while	(discardsreaper1 > *reaper1)
+				{
+					cout << "Sorry, you dont have enough Reaper. Please tell me how many Reapers you want to drop." << endl;
+					cout << "Reaper: ";
+					cin >> discardsreaper1;
+				}
+
+
+				cout << "Shield of Zeus: ";
+				cin >> discardsshield1;
+				while	(discardsshield1 > *shield1)
+				{
+					cout << "Sorry, you dont have enough Shield of Zeus. Please tell me how many Shield of Zeus you want to drop." << endl;
+					cout << "Shield of Zeus: ";
+					cin >> discardsshield1;
+				}
+
+
+
+				cout << "Hephaestus Blessing: ";
+				cin >> discardsarmor1;
+				while	(discardsarmor1 > *armor1)
+				{
+					cout << "Sorry, you dont have enough Hephaestus Blessing. Please tell me how many Hephaestus Blessing you want to drop." << endl;
+					cout << "Hephaestus Blessing: ";
+					cin >> discardsarmor1;
+				}
+
+
+
+				cout << "Greedy Draw: ";
+				cin >> discardsgreedy1;
+				while	(discardsgreedy1 > *greedy1)
+				{
+					cout << "Sorry, you dont have enough Greedy Draw. Please tell me how many Greedy Draws you want to drop." << endl;
+					cout << "Greedy Draw: ";
+					cin >> discardsgreedy1;
+				}
+
+
+				cout << "Plague: ";
+				cin >> discardsplague1;
+				while	(discardsplague1 > *plague1)
+				{
+					cout << "Sorry, you dont have enough Plague. Please tell me how many Plague you want to drop." << endl;
+					cout << "Plague: ";
+					cin >> discardsplague1;
+				}
+
+				
+
+
+			totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+			if (totaldiscards1 > *totalcards1 - *currenthp1)
+				cout << "You dropped too many items. It's not quite wise. Please reconsider.\n" << endl;
+			if (totaldiscards1 < *totalcards1 - *currenthp1)
+				cout << "You can't carry all of that. Please tell me again. \n " << endl;
+			}
+
+			*kill1 = *kill1 - discardskill1;
+
+			*dodge1 = *dodge1 - discardsdodge1;
+
+			*potion1 = *potion1 - discardspotion1;
+
+			*firearrow1 = *firearrow1 - discardsfirearrow1;
+
+			*lightening1 = *lightening1 - discardslightening1;
+
+			*sunset1 = *sunset1 - discardssunset1;
+
+			*phoenix1 = *phoenix1 - discardsphoenix1;
+
+			*bloodthirsty1 = *bloodthirsty1 - discardsbloodthirsty1;
+
+			*reaper1 = *reaper1 - discardsreaper1;
+
+			*shield1 = *shield1 - discardsshield1;
+
+			*armor1 = *armor1 - discardsarmor1;
+
+			*greedy1 = *greedy1 - discardsgreedy1;
+
+			*plague1 = *plague1 - discardsplague1;
+
+
+		
+	}
+	cout <<"Your turn is over.\n\n\n" << endl; // Player1 turn is over*
+
+
+	}
+
+void Caster(double *kill1, double *kill2, double *dodge1, double *dodge2, double *potion1,double *potion2,double *firearrow1, double *firearrow2,double *lightening1,double *lightening2,double *sunset1,double *sunset2,double *phoenix1,double *phoenix2,double *bloodthirsty1,double *bloodthirsty2,double *reaper1,double *reaper2,double *shield1,double *shield2,double *armor1,double *armor2,double *greedy1,double *greedy2,double *plague1,double *plague2, double *totalcards1, double *totalcards2, double *currenthp1, double *currenthp2, double Hp1, double Hp2, string player1name,string player2name, double* showcard1, double *accumulateattack1, double *round, string gladiator1, string gladiator2) //2+5+3
+{
+	double startnumber =0;
+	double n =0;
+	double dice;
+	double arrowjudge =0;
+	double sunsetdiscard1 = 0;
+	double sunsetdiscard2 = 0;
+	double greedydraw1 = 0;
+	double greedydrawsecond1 = 0;
+	double fatetoss1 = 0;
+	double fatetoss2 = 0;
+	double fate1 = 0;
+	double fate2 = 0;
+    double totaldiscards1 = 0;
+	double discardskill1 = 0;
+	double	discardsdodge1 = 0; 
+	double discardspotion1 = 0; 
+	double discardsfirearrow1 = 0;
+	double discardslightening1 = 0;
+	double discardssunset1 = 0;
+	double discardsbloodthirsty1 = 0;
+	double discardsreaper1 = 0;
+	double discardsphoenix1 = 0;
+	double discardsshield1 = 0;
+	double discardsarmor1 = 0;
+	double discardsgreedy1 = 0;
+	double discardsplague1 = 0;
+    char yesnododge;
+	char yesnopotion;
+	char skill;
+	double sunsetkill;
+	double sunsetdodge;
+	double sunsetpotion;
+	double sunsetfirearrow;
+	double sunsetlightening;
+	double sunsetsunset;
+	double sunsetbloodthirsty;
+	double sunsetreaper;
+	double sunsetshield;
+	double sunsetarmor;
+	double sunsetgreedy;
+	double sunsetplague;
+	double discardcaster;
+	double accumulatediscardcaster = 0;
+	srand ((unsigned)time(NULL));
+
+	*round += 1;
+	if (*round==1)
+	{
+	*currenthp1 = hp1;
+	*currenthp2 = hp2;
+	}
+	cout <<"Player " << player1name << " Turn " << endl;  //player 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	cout <<"Please type '1' to draw 2 cards." << endl;
+	cin >> startnumber;
+
+	while(startnumber!=1)
+	{
+		cout <<"please tell us you are ready. Press " << endl;
+		cin >> startnumber;
+
+	}
+
+	for (int t = 0;t<2;t++)
+	{
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+		
+
+	}
+ 
+	cout << "Do you want to discard one card to use your skill ? (y/n)" << endl;
+	cin >> skill;
+
+	if(skill=='y')
+	{
+		
+		cout << "Please choose which card you want to discard" << endl;
+		cout << "Please enter the number of the card" << endl;
+		cout << endl;
+		cout << "  Active cards: " << endl;
+		cout << "1.Attack " << *kill1 << endl;
+		cout << "2.Potion " << *potion1 << endl;
+		cout << "3.Fire Arrow " << *firearrow1 << endl;
+		cout << "4.lightening " << *lightening1 << endl;
+		cout << "5.Sunset Bow " << *sunset1 << endl;
+		cout << "6.Bloodthirsty Blade " << *bloodthirsty1 << endl;
+		cout << "7.Reaper " << *reaper1 << endl;
+		cout << "8.Greedy Draw " << *greedy1 << endl;
+		cout << "9.Plague " << *plague1 << endl;
+		cout << endl;
+		cout << "   Passive cards:" << endl;
+		cout << "10.Dodge " << *dodge1 << endl;
+		cout << "11.Phoenix Wand " << *phoenix1 << endl;
+		cout << "12.Shield of Zeus " << *shield1 << endl;
+		cout << "13.Hephaestus Blessing " << *armor1 << endl;
+		cout << endl;
+
+		while(accumulatediscardcaster != 1)
+		{
+			cout << "Please enter the number of the card you want to discard!" << endl;
+			cin >> discardcaster;
+			if(discardcaster==1)
+			{
+				if (*kill1>0)
+				{
+					cout << " You discard Attack card " << endl;
+					*kill1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 2)
+			{
+				if (*potion1>0)
+				{
+					cout << " You discard Potion card " << endl;
+					*potion1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 3)
+			{
+				if (*firearrow1>0)
+				{
+					cout << " You discard Fire Arrow card " << endl;
+					*firearrow1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 4)
+			{
+				if (*lightening1>0)
+				{
+					cout << " You discard lightening card " << endl;
+					*lightening1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 5)
+			{
+				if (*sunset1>0)
+				{
+					cout << " You discard Sunset Bow card " << endl;
+					*sunset1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 6)
+			{
+				if (*bloodthirsty1>0)
+				{
+				cout << " You discard Bloodthirsty card " << endl;
+				*bloodthirsty1-=1;
+				accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 7)
+			{
+				if (*reaper1>0)
+				{
+					cout << " You discard Reaper card " << endl;
+					*reaper1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 8)
+			{
+				if (*greedy1>0)
+				{
+					cout << " You discard Greedy Draw card " << endl;
+					*greedy1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 9)
+			{
+				if (*plague1>0)
+				{
+					cout << " You discard Plague card " << endl;
+					*plague1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 10)
+			{	
+				if (*dodge1>0)
+				{
+					cout << " You discard dodge card " << endl;
+					*dodge1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 11)
+			{	
+				if (*phoenix1>0)
+				{
+					cout << " You discard Phoenix Wand card " << endl;
+					*phoenix1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 12)
+			{
+				if (*shield1>0)
+				{
+					cout << " You discard Shield of Zeus card " << endl;
+					*shield1-=1;
+					accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else if(discardcaster == 13)
+			{
+				if (*armor1>0)
+				{
+				cout << " You discard Hephaestus Blessing card " << endl;
+				*armor1-=1;
+				accumulatediscardcaster+=1;
+				}
+				else
+				{
+					cout << "Sorry! Dont have enough this card!";
+				}
+			}
+			else
+			{
+				cout << " You enter the wrong number" << endl;
+			}
+			
+		}
+			cout << endl;
+			cout<< "Now, you can use your skill to draw cards. " << endl;
+			
+
+			do
+			{
+				dice = rand()%2+1;
+							//draw
+					n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+			cout << "You gain a kill card by your power." << endl;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+			cout << "You gain a dodge card by your power." << endl;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+			cout << "You gain a potion card by your power." << endl;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+			cout << "You gain a firearrow card by your power." << endl;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+			cout << "You gain a lightening card by your power." << endl;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+			cout << "You gain a sunset card by your power." << endl;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+			cout << "You gain a phoenix card by your power." << endl;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+			cout << "You gain a bloodthirsty card by your power." << endl;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+			cout << "You gain a reaper card by your power." << endl;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+			cout << "You gain a shield card by your power." << endl;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+			cout << "You gain a armor card by your power." << endl;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+			cout << "You gain a greedy card by your power." << endl;
+		}
+		else
+		{
+			*plague1+=1;
+			cout << "You gain a plague card by your power." << endl;
+		}
+								
+			}while(dice==1);
+
+
+	}
+
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards(Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards(Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+	while (*showcard1 !=0 )///importance!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+
+
+
+
+	if (*showcard1 == 1)
+	{
+		if (*kill1 > 0&&*accumulateattack1 == 0)
+		{
+			*kill1-=1;
+			*accumulateattack1+=1;
+			if(*dodge2>0)
+			{
+				cout << "Player " << player2name << ", do you want to dodge this energy's attack? (y or n)" << endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else 
+				{	
+					*currenthp2-=1;
+					if (*currenthp2==0&&*phoenix2>0)
+					{
+						*currenthp2=1;
+						*phoenix2-=1;
+					}
+					if (*currenthp2==0&&*phoenix2==0)
+					{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					}
+				}
+			}
+			else 
+			{
+				*currenthp2-=1;
+
+				if (*currenthp2<=0&&*phoenix2>0)
+				{
+					*currenthp2=1;
+					*phoenix2-=1;
+				}
+				if (*currenthp2<=0&&*phoenix2==0)
+				{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+				}
+			}
+		}
+			
+
+		else
+		{
+			cout << "Sorry, you don't have enough attacks or you have already attacked the enemy" << endl;
+			
+		}
+	}
+
+	if (*showcard1 ==2)
+	{
+		if (*potion1>0&&*currenthp1<Hp1)
+		{
+			cout <<"Player " << player1name << ", do you want to drink a potion?(y or n)" << endl;
+			cin	>> yesnopotion;
+			if (yesnopotion=='y')
+			{
+				*currenthp1+=1;
+				*potion1-=1;
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough potion or you dont need medicare right now." << endl;
+		}
+	}
+
+		if (*showcard1 == 3)
+	{
+		if (*firearrow1 > 0)
+		{
+			*firearrow1-=1;
+				if (*armor1>0)
+				{
+					*armor1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Fire Arrow." << endl;
+		}
+	}
+
+	if (*showcard1 == 4)
+	{
+		if (*lightening1 > 0)
+		{
+			*lightening1-=1;
+				if (*shield1>0)
+				{
+					*shield1-=1;
+				}
+				else 
+				{
+					*currenthp2-=1;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+		
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Shield of Zeus." << endl;
+		}
+	}
+
+	if (*showcard1 ==5)
+	{
+		if (*sunset1 > 0&&*totalcards2>0)
+		{
+			*sunset1-=1;
+			n = 10;
+			sunsetkill= *kill2;
+			sunsetdodge = *dodge2;
+			sunsetpotion = *potion2;
+			sunsetfirearrow = *firearrow2;
+			sunsetlightening = *lightening2;
+			sunsetsunset = *sunset2;
+			sunsetbloodthirsty = *bloodthirsty2;
+			sunsetreaper = *reaper2;
+			sunsetshield = *shield2;
+			sunsetarmor = *armor2;
+			sunsetgreedy = *greedy2;
+			sunsetplague = *plague2;
+
+			while (n>*totalcards2)
+			{
+			n=rand()%5 +1;
+			if(0<n && n<=sunsetkill)
+			{
+				*kill2-=1;
+			}
+			if(sunsetkill<n && n<=sunsetkill + sunsetdodge)
+			{
+				*dodge2-=1;
+			}
+			if(sunsetkill + sunsetdodge<n && n<=sunsetkill + sunsetdodge + sunsetpotion)
+			{
+				*potion2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow)
+			{
+				*firearrow2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening)
+			{
+				*lightening2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset)
+			{
+				*sunset2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty)
+			{
+				*bloodthirsty2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper)
+			{
+				*reaper2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield)
+			{
+				*shield2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor)
+			{
+				*armor2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy)
+			{
+				*greedy2-=1;
+			}
+			if(sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy<n && n<=sunsetkill + sunsetdodge + sunsetpotion + sunsetfirearrow + sunsetlightening + sunsetsunset + sunsetbloodthirsty + sunsetreaper + sunsetshield + sunsetarmor + sunsetgreedy + sunsetplague)
+			{
+				*plague2-=1;
+			}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you dont have enough sunset or your opponent doesn't have any card in hand. " << endl;
+		}
+
+
+	}
+	if (*showcard1 == 6)
+	{
+		if (*bloodthirsty1>0&&*currenthp1<Hp1)
+		{
+			*bloodthirsty1-=1;
+			if (*dodge2 >0)
+			{
+				cout << "The enemy uses Bloodthirsty Blade, do you want to dodge?(enter y or n)"<< endl;
+				cin >> yesnododge;
+				if (yesnododge == 'y')
+				{
+					*dodge2-=1;
+				}
+				else
+				{
+					*currenthp2-=1;
+					*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+				}
+			}
+			else
+			{
+				*currenthp2-=1;
+				*currenthp1+=1;
+
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you can not use Bloodthirsty Blade right now." << endl;
+		}
+	}
+
+
+	if (*showcard1 == 7)
+	{
+		if (*reaper1>0&&*currenthp2<=2)
+		{
+			*reaper1-=1;
+			*currenthp2-=2;
+			if (*currenthp2<=0&&*phoenix2>0)
+			{
+				*currenthp2=1;
+				*phoenix2-=1;
+			}
+			else 
+			{
+				cout << "You are victorious. " << player2name << " lost the game." << endl;
+				exit(0);
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Reaper or you are not able to use it right now." << endl;
+		}
+	}
+
+	if (*showcard1 == 8)
+	{
+		if (*greedy1 > 0)
+		{
+			*greedy1-=1;
+			*totalcards1+=2;
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+
+		n = rand()%100+1;
+		if(n>=1&&n<=40)
+		{
+			*kill1+=1;
+		}
+		else if (n>=41&&n<=60)
+		{
+			*dodge1+=1;
+		}
+		else if (n>=61&&n<=70)
+		{
+			*potion1+=1;
+		}
+		else if (n>=71&&n<=76)
+		{
+			*firearrow1+=1;
+		}
+		else if (n>=77&&n<=82)
+		{
+			*lightening1+=1;
+		}
+		else if (n>=83&&n<=84)
+		{
+			*sunset1+=1;
+		}
+		else if (n>=85&&n<=86)
+		{
+			*phoenix1+=1;
+		}
+		else if (n>=87&&n<=88)
+		{
+			*bloodthirsty1+=1;
+		}
+		else if (n>=89&&n<=90)
+		{
+			*reaper1+=1;
+		}
+		else if (n>=91&&n<=92)
+		{
+			*shield1+=1;
+		}
+		else if (n>=93&&n<=94)
+		{
+			*armor1+=1;
+		}
+		else if (n>=95&&n<=98)
+		{
+			*greedy1+=1;
+		}
+		else
+		{
+			*plague1+=1;
+		}
+			
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+	
+		}
+
+			if (*showcard1 == 9)
+	{
+		if (*plague1 > 0)
+		{
+
+			*plague1-=1;
+			cout << player1name << "You use the plague in this battlefield, the wrath of God will determine your fate." << endl;
+
+			
+			cout << "Player1 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player1,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss1;
+			while (fatetoss1 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin>> fatetoss1;
+			}
+
+			fate1 = rand()%100+1;
+			cout << fate1 << endl;
+			
+
+			cout << endl;
+			cout << endl;
+			cout << "Player2 toss his dice to decide his fate.(check whose number is bigger from 1~100)" << endl;
+ 			cout << "Player2,please toss your fatedice(enter number 1 to toss)." << endl;
+			cin >> fatetoss2;
+
+			while (fatetoss2 != 1)
+			{
+				cout << "Please tell me when you are ready." << endl;
+				cin >> fatetoss2;
+			}
+
+				fate2 = rand()%100+1;
+				cout << fate2 << endl;
+		
+
+			if (fate1>=fate2)
+			{
+				*currenthp2-=2;
+					if (*currenthp2<=0)
+					{
+						if (*phoenix2>0)
+						{
+						*currenthp2=1;
+						*phoenix2-=1;
+						}
+					    else 
+				     	{
+						cout << "You are victorious. " << player2name << " lost the game." << endl;
+						exit(0);
+					    }
+					}
+
+			}
+			else 
+			{
+				*currenthp1-=1;
+				if (*currenthp1<=0)
+				{
+					if (*phoenix1>0)
+					{
+						*currenthp1=1;
+						*phoenix1-=1;
+					}
+					else
+					{
+						cout << "You are defeated. " << player2name << " win the game." << endl;
+					}
+				}
+			}
+		}
+		else
+		{
+			cout << "Sorry, you don't have enough Greedy Draw." << endl;
+		}
+			}
+    *totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+	*totalcards2 = *kill2+*dodge2+*potion2+*firearrow2+*lightening2+*sunset2+*bloodthirsty2+*reaper2+*shield2+*armor2+*greedy2+*plague2;
+	cout << player1name << "(" <<gladiator1 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp1 << " ): " << *currenthp1 << endl;
+	cout << player1name << "'s total card: " << *totalcards1 << endl;
+	cout << endl;
+	cout << player2name << "(" << gladiator2 << ")" << endl;
+	cout << "Current Hp(MAX " << Hp2 << " ): " << *currenthp2 << endl;
+	cout << player2name << "'s total card: " << *totalcards2 << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Now, you can take the following actions: " << endl;
+	cout << endl;
+	cout << "Active cards (Pless 1 - 9 to activate active cards.): " << endl;
+	cout << "1.Attack  " << *kill1 << endl;
+	cout << "2.Potion  " << *potion1 << endl;
+	cout << "3.Fire Arrow  " << *firearrow1 << endl;
+	cout << "4.Lightening  " << *lightening1 << endl;
+	cout << "5.Sunset Bow  " << *sunset1 << endl;
+	cout << "6.Bloodthirsty Blade   "<< *bloodthirsty1 << endl;
+	cout << "7.Reaper   " << *reaper1 << endl;
+	cout << "8.Greedy Draw   " << *greedy1 << endl;
+	cout << "9.Plague   " << *plague1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Passive cards (Passive cards are used for defence, you cant activate it in your turn.): " << endl;
+	cout << "#1.Dodge    " << *dodge1 << endl;
+	cout << "#2.Phoenix Ward    " << *phoenix1 << endl;
+	cout << "#3.Shield of Zeus    " << *shield1 << endl;
+	cout << "#4.Hephaestus Blessing    " << *armor1 << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Press 0 if you want to end your turn." << endl;
+	cout << endl;
+	cout << endl;
+	cout << "Enter your action card number: ";
+	cin >> *showcard1;
+
+
+
+	// while loop ends
+
+	
+}
+
+			// player1 discard time
+  	 	*totalcards1 = *kill1+*dodge1+*potion1+*firearrow1+*lightening1+*sunset1+*bloodthirsty1+*reaper1+*shield1+*armor1+*greedy1+*plague1;
+		totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+		*accumulateattack1=0;
+	
+		if (*totalcards1 > *currenthp1)
+		{
+			cout << "You dont have enough strength to carry all your equipments. \nPlease drop " << *totalcards1 - *currenthp1 << " of that." << endl;
+			cout << "Please enter the amount of cards that you want to drop, respectively. \n " << endl;
+			while (totaldiscards1 != *totalcards1 - *currenthp1)
+			{
+				cout << "attack: ";
+				cin >> discardskill1;
+				while (discardskill1 >*kill1)
+				{
+					cout << "Sorry, you dont have enough attack. Please tell me how many attacks you want to drop." << endl;
+					cout << "attack: ";
+					cin >> discardskill1;
+				}
+
+
+
+				cout << "Dodge: ";
+				cin >> discardsdodge1;
+				while (discardsdodge1 >*dodge1)
+				{
+					cout << "Sorry, you dont have enough dodge. Please tell me how many dodges you want to drop." << endl;
+					cout << "Dodge: ";
+					cin >> discardsdodge1;
+				}
+
+
+
+				cout << "Potion: ";
+				cin >> discardspotion1;
+				while (discardspotion1 >*potion1)
+				{
+					cout << "Sorry, you dont have enough potion. Please tell me how many potions you want to drop." << endl;
+					cout << "Potion: ";
+					cin >> discardspotion1;
+				}
+
+
+
+				cout << "Fire Arrow: ";
+				cin >> discardsfirearrow1;
+				while	(discardsfirearrow1 > *firearrow1)
+				{
+					cout << "Sorry, you dont have enough Fire Arrow. Please tell me how many Fire Arrows you want to drop." << endl;
+					cout << "Fire Arrow: ";
+					cin >> discardsfirearrow1;
+				}
+
+				cout << "Lightening: ";
+				cin >> discardslightening1;
+				while	(discardslightening1 > *lightening1)
+				{
+					cout << "Sorry, you dont have enough Lightening. Please tell me how many Lightening you want to drop." << endl;
+					cout << "Lightening: ";
+					cin >> discardslightening1;
+				}
+
+				cout << "Sunset: ";
+				cin >> discardssunset1;
+				while	(discardssunset1 > *sunset1)
+				{
+					cout << "Sorry, you dont have enough Sunset Bow. Please tell me how many Sunset Bows you want to drop." << endl;
+					cout << "Sunset Bow: ";
+					cin >> discardssunset1;
+				}
+
+				cout << "Phoenix Wand: ";
+				cin >> discardsphoenix1;
+				while	(discardsphoenix1 > *phoenix1)
+				{
+					cout << "Sorry, you dont have enough Phoenix Wand. Please tell me how many Phoenix Wands you want to drop." << endl;
+					cout << "Phoenix Wand: ";
+					cin >> discardsphoenix1;
+				}
+
+				cout << "Bloodthirsty Blade: ";
+				cin >> discardsbloodthirsty1;
+				while	(discardsbloodthirsty1 > *bloodthirsty1)
+				{
+					cout << "Sorry, you dont have enough Bloodthirsty Blade. Please tell me how many Bloodthirsty Blades you want to drop." << endl;
+					cout << "Bloodthirsty Blade: ";
+					cin >> discardsbloodthirsty1;
+				}
+
+				cout << "Reaper: ";
+				cin >> discardsreaper1;
+				while	(discardsreaper1 > *reaper1)
+				{
+					cout << "Sorry, you dont have enough Reaper. Please tell me how many Reapers you want to drop." << endl;
+					cout << "Reaper: ";
+					cin >> discardsreaper1;
+				}
+
+
+				cout << "Shield of Zeus: ";
+				cin >> discardsshield1;
+				while	(discardsshield1 > *shield1)
+				{
+					cout << "Sorry, you dont have enough Shield of Zeus. Please tell me how many Shield of Zeus you want to drop." << endl;
+					cout << "Shield of Zeus: ";
+					cin >> discardsshield1;
+				}
+
+
+
+				cout << "Hephaestus Blessing: ";
+				cin >> discardsarmor1;
+				while	(discardsarmor1 > *armor1)
+				{
+					cout << "Sorry, you dont have enough Hephaestus Blessing. Please tell me how many Hephaestus Blessing you want to drop." << endl;
+					cout << "Hephaestus Blessing: ";
+					cin >> discardsarmor1;
+				}
+
+
+
+				cout << "Greedy Draw: ";
+				cin >> discardsgreedy1;
+				while	(discardsgreedy1 > *greedy1)
+				{
+					cout << "Sorry, you dont have enough Greedy Draw. Please tell me how many Greedy Draws you want to drop." << endl;
+					cout << "Greedy Draw: ";
+					cin >> discardsgreedy1;
+				}
+
+
+				cout << "Plague: ";
+				cin >> discardsplague1;
+				while	(discardsplague1 > *plague1)
+				{
+					cout << "Sorry, you dont have enough Plague. Please tell me how many Plague you want to drop." << endl;
+					cout << "Plague: ";
+					cin >> discardsplague1;
+				}
+
+				
+
+
+			totaldiscards1 = discardskill1 + discardsdodge1 + discardspotion1+discardsfirearrow1+discardslightening1+discardssunset1+discardsbloodthirsty1+discardsreaper1+discardsshield1+discardsarmor1+discardsgreedy1+discardsplague1;
+			if (totaldiscards1 > *totalcards1 - *currenthp1)
+				cout << "You dropped too many items. It's not quite wise. Please reconsider.\n" << endl;
+			if (totaldiscards1 < *totalcards1 - *currenthp1)
+				cout << "You can't carry all of that. Please tell me again. \n " << endl;
+			}
+
+			*kill1 = *kill1 - discardskill1;
+
+			*dodge1 = *dodge1 - discardsdodge1;
+
+			*potion1 = *potion1 - discardspotion1;
+
+			*firearrow1 = *firearrow1 - discardsfirearrow1;
+
+			*lightening1 = *lightening1 - discardslightening1;
+
+			*sunset1 = *sunset1 - discardssunset1;
+
+			*phoenix1 = *phoenix1 - discardsphoenix1;
+
+			*bloodthirsty1 = *bloodthirsty1 - discardsbloodthirsty1;
+
+			*reaper1 = *reaper1 - discardsreaper1;
+
+			*shield1 = *shield1 - discardsshield1;
+
+			*armor1 = *armor1 - discardsarmor1;
+
+			*greedy1 = *greedy1 - discardsgreedy1;
+
+			*plague1 = *plague1 - discardsplague1;
+
+
+		
+	}
+	cout <<"Your turn is over.\n\n\n" << endl; // Player1 turn is over*
+
+
+	}
+
